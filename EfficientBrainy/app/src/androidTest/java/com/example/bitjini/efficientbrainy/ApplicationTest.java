@@ -1,4 +1,4 @@
-package com.bitjini.efficientbrainy;
+package com.example.bitjini.efficientbrainy;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
