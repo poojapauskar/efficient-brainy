@@ -40,7 +40,7 @@ public class Login extends Fragment {
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction()
-                        .replace(contentView2.getId(), newfragment).addToBackStack(contentView2.toString())
+                        .replace(contentView2.getId(), newfragment)
                         .commit();
 
             }

@@ -43,7 +43,7 @@ public class Otp extends Fragment implements View.OnClickListener {
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction()
-                        .replace(contentView1.getId(), newfragment).addToBackStack(contentView1.toString())
+                        .replace(contentView1.getId(), newfragment)
                         .commit();
 
                 break;
