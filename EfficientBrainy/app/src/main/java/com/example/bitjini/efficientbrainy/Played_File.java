@@ -32,6 +32,7 @@ public class Played_File extends Fragment {
                 // get the id of fragment
                 FrameLayout contentView1 = (FrameLayout) fileView.findViewById(R.id.file_frame);
 
+
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction()
