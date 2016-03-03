@@ -2,10 +2,13 @@ package com.example.bitjini.efficientbrainy;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+
 import android.os.Bundle;
+import android.app.Fragment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 public class MainActivity extends Activity {
 
@@ -20,8 +23,15 @@ public class MainActivity extends Activity {
         splashBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,Login.class);
-                startActivity(intent);
+
+                Fragment newfragment = new Login();
+                FrameLayout contentView2 = (FrameLayout)findViewById(R.id.mainFrame);
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(contentView2.getId(),newfragment)
+                        .commit();
+
+
             }
         });
 
