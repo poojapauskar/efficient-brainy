@@ -30,8 +30,7 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class Decrypted_AudioFiles extends Activity{
 
-    Button btn_Dec;
-
+    MediaPlayer mediaPlayer=new MediaPlayer();
 
 
     byte [] decrpt;
@@ -57,8 +56,7 @@ public class Decrypted_AudioFiles extends Activity{
             decrpt = decrypt(KEY, getAudioFile());
 
              //play decrypted audio file.
-
-                playMp3(decrpt);
+           playMp3(decrpt);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,8 +76,10 @@ public class Decrypted_AudioFiles extends Activity{
         AssetManager am = ctx.getAssets();
 
         try {
+            // retrieve audio file sent by Otp class
+            String audio=getIntent().getStringExtra("audio");
 
-          InputStream is = am.open("vincent.xxx"); // use recorded file instead of getting file from assets folder.
+          InputStream is = am.open(audio);
             int length = is.available();
 
             audio_data = new byte[length];
@@ -113,13 +113,13 @@ public class Decrypted_AudioFiles extends Activity{
 
      */
 
-    private void playMp3(byte[] mp3SoundByteArray) {
+    public void playMp3(byte[] mp3SoundByteArray) {
 
         try {
 
             // create temp file that will hold byte array
 
-            File tempMp3 = File.createTempFile("kurchina", "mp3", getCacheDir());
+            File tempMp3 = File.createTempFile("kurchina", "mp3",getCacheDir());
             Log.e(" tempMp3", "" + tempMp3);
             tempMp3.deleteOnExit();
 
@@ -128,14 +128,6 @@ public class Decrypted_AudioFiles extends Activity{
             fos.write(mp3SoundByteArray);
 
             fos.close();
-
-
-
-            // Tried reusing instance of media player
-
-            // but that resulted in system crashes...
-
-            MediaPlayer mediaPlayer = new MediaPlayer();
 
             FileInputStream fis = new FileInputStream(tempMp3);
             Log.e(" file output stream",""+fis.getFD());

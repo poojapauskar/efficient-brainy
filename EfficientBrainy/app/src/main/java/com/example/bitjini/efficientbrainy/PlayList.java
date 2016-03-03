@@ -48,6 +48,11 @@ return playView;
                 // get the id of fragment
                 FrameLayout contentView1 = (FrameLayout) playView.findViewById(R.id.playListFrame);
 
+                //put the value to pass
+                Bundle args = new Bundle();
+                args.putString("audio", "audio_1.xxx");
+                newfragment.setArguments(args);
+
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction()
@@ -59,6 +64,10 @@ return playView;
                 Fragment newfragment2 = new Otp();
                 // get the id of fragment
                 FrameLayout contentView2 = (FrameLayout) playView.findViewById(R.id.playListFrame);
+                //put the value to pass
+                Bundle args2 = new Bundle();
+                args2.putString("audio", "audio_2.xxx");
+                newfragment2.setArguments(args2);
 
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager2 = getFragmentManager();
@@ -72,6 +81,11 @@ return playView;
                 // get the id of fragment
                 FrameLayout contentView3 = (FrameLayout) playView.findViewById(R.id.playListFrame);
 
+                //put the value to pass
+                Bundle args3 = new Bundle();
+                args3.putString("audio", "audio_3.xxx");
+                newfragment3.setArguments(args3);
+
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager3 = getFragmentManager();
                 fragmentManager3.beginTransaction()
@@ -82,6 +96,11 @@ return playView;
             case R.id.play4:
                 Fragment newfragment4 = new Otp();
                 FrameLayout contentView4 = (FrameLayout) playView.findViewById(R.id.playListFrame);
+
+                //put the value to pass
+                Bundle args4 = new Bundle();
+                args4.putString("audio", "audio_4.xxx");
+                newfragment4.setArguments(args4);
 
                 // Insert the fragment by replacing any existing fragment
                 FragmentManager fragmentManager4 = getFragmentManager();
