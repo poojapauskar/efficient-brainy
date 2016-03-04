@@ -38,22 +38,32 @@ public class Otp extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ok_btn:
-                Fragment newfragment = new Played_File();
 
+                Intent intent=new Intent(getActivity(), Played_File.class);
                 // Retrieving audio from PlayList
                 String value1=getArguments().getString("audio");
                 if(value1!=null) {
-                    Bundle args1 = new Bundle();
-                    args1.putString("audio", value1);
-                    newfragment.setArguments(args1);
-                }
-                // get the id of fragment
-                FrameLayout contentView1 = (FrameLayout) otpView.findViewById(R.id.otp_frame);
-             // Insert the fragment by replacing any existing fragment
-                FragmentManager fragmentManager1 = getFragmentManager();
-                fragmentManager1.beginTransaction()
-                        .replace(contentView1.getId(), newfragment)
-                        .commit();
+                    //add data to the Intent object
+                    intent.putExtra("audio", value1);   //put the value to pass
+
+                    //start the second activity
+                    startActivity(intent);}
+//                Fragment newfragment = new Played_File();
+//
+//                // Retrieving audio from PlayList
+//                String value1=getArguments().getString("audio");
+//                if(value1!=null) {
+//                    Bundle args1 = new Bundle();
+//                    args1.putString("audio", value1);
+//                    newfragment.setArguments(args1);
+//                }
+//                // get the id of fragment
+//                FrameLayout contentView1 = (FrameLayout) otpView.findViewById(R.id.otp_frame);
+//             // Insert the fragment by replacing any existing fragment
+//                FragmentManager fragmentManager1 = getFragmentManager();
+//                fragmentManager1.beginTransaction()
+//                        .replace(contentView1.getId(), newfragment)
+//                        .commit();
 
                 break;
             case R.id.cancel_btn:
