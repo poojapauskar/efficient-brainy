@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bitjini.efficientbrainy">
+    package="com.bitjini.efficientbrainy">
 
     <application
         android:allowBackup="true"

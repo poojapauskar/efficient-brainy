@@ -1,4 +1,4 @@
-package com.example.bitjini.efficientbrainy;
+package com.bitjini.efficientbrainy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

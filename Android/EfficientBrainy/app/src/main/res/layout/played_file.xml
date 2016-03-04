@@ -26,12 +26,26 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:src="@drawable/play"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="fill_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:text="time"
+            android:id="@+id/txtStart"
+            />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginRight="50dp"
-        android:text="time"/>
+        android:layout_marginLeft="200dp"
+        android:text="time"
+        android:id="@+id/txtDuration"/>
+        </LinearLayout>
     <SeekBar
         android:layout_width="300dp"
         android:layout_height="30dp"

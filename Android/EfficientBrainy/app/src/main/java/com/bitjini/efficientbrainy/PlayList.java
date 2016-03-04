@@ -1,4 +1,4 @@
-package com.example.bitjini.efficientbrainy;
+package com.bitjini.efficientbrainy;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -57,6 +57,7 @@ return playView;
                 fragmentManager1.beginTransaction()
                         .replace(contentView1.getId(), newfragment1).addToBackStack(contentView1.toString())
                         .commit();
+
                 break;
             case R.id.play2:
                 Fragment newfragment2 = new Otp();
