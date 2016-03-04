@@ -40,7 +40,16 @@ public class Played_File extends Fragment {
         fileView = inflater.inflate(R.layout.played_file, container, false);
 
         stopExit=(Button)fileView.findViewById(R.id.stopExit);
+        //create an Intent object
+        Intent intent=new Intent(getActivity(), Decrypted_AudioFiles.class);
+        // Retrieving audio from PlayList
+        String value1=getArguments().getString("audio");
+        if(value1!=null) {
+        //add data to the Intent object
+        intent.putExtra("audio", value1);   //put the value to pass
 
+        //start the second activity
+        startActivity(intent);}
 
         seekBar=(SeekBar)fileView. findViewById(R.id.seekbar);
         seekBar.setClickable(false);
