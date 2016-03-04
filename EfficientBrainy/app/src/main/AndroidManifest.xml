@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Decrypted_AudioFiles"></activity>
+        <activity android:name=".Played_File"></activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
