@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from city.models import City, LANGUAGE_CHOICES, STYLE_CHOICES
+from generate_otp.models import Generate_otp, LANGUAGE_CHOICES, STYLE_CHOICES
 from get_edit_profile.models import Get_edit_profile, LANGUAGE_CHOICES, STYLE_CHOICES
 import random
 from random import randint

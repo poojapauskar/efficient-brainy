@@ -30,8 +30,8 @@ def JSONResponse(data = None, status = StatusCode.OK):
 
 def get_queryset(request):
   from django.http import JsonResponse
-  
   access_token = request.GET.get('access_token')
+  # access_token = '123456789'
   if(Register.objects.filter(token_generated=access_token).exists()):
     pass
   else:
