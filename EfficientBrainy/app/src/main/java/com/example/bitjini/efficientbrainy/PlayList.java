@@ -44,21 +44,19 @@ return playView;
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.play1:
-                Fragment newfragment = new Otp();
+                Fragment newfragment1 = new Otp();
                 // get the id of fragment
-                FrameLayout contentView1 = (FrameLayout) playView.findViewById(R.id.playListFrame);
-
+                FrameLayout contentView1= (FrameLayout) playView.findViewById(R.id.playListFrame);
                 //put the value to pass
-                Bundle args = new Bundle();
-                args.putString("audio", "audio_1.xxx");
-                newfragment.setArguments(args);
+                Bundle args1 = new Bundle();
+                args1.putString("audio", "audio_1.xxx");
+                newfragment1.setArguments(args1);
 
                 // Insert the fragment by replacing any existing fragment
-                FragmentManager fragmentManager1 = getFragmentManager();
+                FragmentManager fragmentManager1= getFragmentManager();
                 fragmentManager1.beginTransaction()
-                        .replace(contentView1.getId(), newfragment).addToBackStack(contentView1.toString())
+                        .replace(contentView1.getId(), newfragment1).addToBackStack(contentView1.toString())
                         .commit();
-
                 break;
             case R.id.play2:
                 Fragment newfragment2 = new Otp();

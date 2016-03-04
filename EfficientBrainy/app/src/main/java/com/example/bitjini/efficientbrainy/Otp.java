@@ -38,17 +38,15 @@ public class Otp extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ok_btn:
-                //create an Intent object
-                Intent intent=new Intent(getActivity(), Decrypted_AudioFiles.class);
+                Fragment newfragment = new Played_File();
 
                 // Retrieving audio from PlayList
                 String value1=getArguments().getString("audio");
-                //add data to the Intent object
-                intent.putExtra("audio", value1);   //put the value to pass
-
-                //start the second activity
-                startActivity(intent);
-                Fragment newfragment = new Played_File();
+                if(value1!=null) {
+                    Bundle args1 = new Bundle();
+                    args1.putString("audio", value1);
+                    newfragment.setArguments(args1);
+                }
                 // get the id of fragment
                 FrameLayout contentView1 = (FrameLayout) otpView.findViewById(R.id.otp_frame);
              // Insert the fragment by replacing any existing fragment
