@@ -29,10 +29,20 @@ class Valid_otpList(generics.ListCreateAPIView):
   user=Register.objects.get(token_generated=access_token)
 
   if(Generate_otp.objects.filter(user_id=user.pk).filter(otp=otp).exists()):
-   details.append(
+   obj1=Generate_otp.objects.get(otp=otp)
+   import datetime
+   if(1):
+    details.append(
                   {
                    'status':200,
                    'message':'Valid OTP',
+                  }
+                 )
+   else:
+    details.append(
+                  {
+                   'status':401,
+                   'message':'OTP Expired',
                   }
                  )
   else:
