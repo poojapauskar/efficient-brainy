@@ -30,8 +30,16 @@ class Valid_otpList(generics.ListCreateAPIView):
 
   if(Generate_otp.objects.filter(user_id=user.pk).filter(otp=otp).exists()):
    obj1=Generate_otp.objects.get(otp=otp)
+
    import datetime
-   if(1):
+   from datetime import timedelta
+   c= (datetime.datetime.now()-obj1.created.replace(tzinfo=None))>timedelta(seconds = 600)
+   import sys
+   print sys.stderr,c
+   print sys.stderr,obj1.created.replace(tzinfo=None)
+   print sys.stderr,datetime.datetime.now()
+
+   if(c==True):
     details.append(
                   {
                    'status':200,
