@@ -58,6 +58,9 @@ class CustomListView(generics.ListAPIView):
 
       user=Register.objects.get(token_generated=access_token)
 
+      if(Generate_otp.objects.filter(user_id=user.pk).exists()):
+       Generate_otp.objects.filter(user_id=user.pk).delete() 
+
       otp_generated=str(random.randint(100000, 999999))
       objects=Generate_otp.objects.create(user_id=user.pk,otp=otp_generated,validity=now_plus_60)
 

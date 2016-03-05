@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'generate_otp',
     'oauth2_provider',
     'login',
+    'resend_otp',
+    'check_username',
+    'valid_otp',
 ]
 
 MIDDLEWARE_CLASSES = [

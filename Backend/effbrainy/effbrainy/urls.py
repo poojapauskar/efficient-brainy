@@ -67,6 +67,9 @@ urlpatterns = patterns('',
     url(r'^', include('get_edit_city.urls')),
     url(r'^', include('generate_otp.urls')),
     url(r'^', include('login.urls')),
+    url(r'^', include('resend_otp.urls')),
+    url(r'^', include('check_username.urls')),
+    url(r'^', include('valid_otp.urls')),
 )
 
 
