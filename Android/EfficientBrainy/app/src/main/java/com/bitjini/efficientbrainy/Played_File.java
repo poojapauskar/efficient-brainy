@@ -55,7 +55,8 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         ctx = this;
 
         txtStart=(TextView) findViewById(R.id.txtStart);
-        txtDuration=(TextView) findViewById(R.id.txtDuration) ;
+        txtDuration=(TextView) findViewById(R.id.txtDuration);
+        seekBar = (SeekBar)findViewById(R.id.seekbar);
         stopExit = (Button) findViewById(R.id.stopExit);
         stopExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +83,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         }
 
 
-        seekBar = (SeekBar)findViewById(R.id.seekbar);
+
 
         seekBar.setClickable(false);
         seekBar.setProgress(0);
@@ -160,6 +161,8 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
 
             mediaPlayer.setDataSource(fis.getFD());
             mediaPlayer.prepare();
+            mediaPlayer.setVolume(1f, 1f);
+            mediaPlayer.setLooping(true);
             startMyPlayer();
 
         } catch (IOException ex) {
@@ -178,20 +181,21 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
 
         finalTime = mediaPlayer.getDuration();
          startTime=mediaPlayer.getCurrentPosition();
-
-            txtDuration.setText(String.format("%d min, %d sec",
+        seekBar.setMax((int) finalTime);
+            txtDuration.setText(String.format("%d:%d ",
                     TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
                     TimeUnit.MILLISECONDS.toSeconds((long) finalTime) -
                             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) finalTime))));
 
 
-        txtStart.setText(String.format("%d min, %d sec",
+        txtStart.setText(String.format("%d :%d",
                 TimeUnit.MILLISECONDS.toMinutes((long) startTime),
                 TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) startTime))));
-        seekBar.setMax((int) finalTime);
+
         seekBar.setProgress((int) startTime);
         seekHandler.postDelayed(updateSongTime, 100);
+
 
 
     }
@@ -213,7 +217,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         @Override
         public void run() {
             startTime=mediaPlayer.getCurrentPosition();
-            txtStart.setText(String.format(" %d min, %d sec",
+            txtStart.setText(String.format(" %d:%d",
                     TimeUnit.MILLISECONDS.toMinutes((long) startTime),
                     TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
                             TimeUnit.MILLISECONDS.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) startTime))
@@ -250,6 +254,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         fragmentManager1.beginTransaction()
                 .replace(contentView1.getId(), newfragment)
                 .commit();
+        finish();
     }
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
