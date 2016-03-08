@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
     SeekBar seekBar;
     Handler seekHandler = new Handler();
 
+    ImageView imgStop;
     MediaPlayer mediaPlayer = new MediaPlayer();
     public byte[] decrpt = new byte[]{};
 
@@ -57,6 +59,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         txtStart=(TextView) findViewById(R.id.txtStart);
         txtDuration=(TextView) findViewById(R.id.txtDuration);
         seekBar = (SeekBar)findViewById(R.id.seekbar);
+        imgStop=(ImageView) findViewById(R.id.stopImageBtn);
         stopExit = (Button) findViewById(R.id.stopExit);
         stopExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,10 +88,17 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
 
 
 
-        seekBar.setClickable(false);
+        seekBar.setClickable(true);
         seekBar.setProgress(0);
+        // to remove the default indicator icon
+//        seekBar.getThumb().mutate().setAlpha(0);
         seekBar.setOnSeekBarChangeListener(this);
-
+  imgStop.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+          onBackPressed();
+      }
+  });
 
 
     }
@@ -161,8 +171,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
 
             mediaPlayer.setDataSource(fis.getFD());
             mediaPlayer.prepare();
-            mediaPlayer.setVolume(1f, 1f);
-            mediaPlayer.setLooping(true);
+
             startMyPlayer();
 
         } catch (IOException ex) {
@@ -213,17 +222,27 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         }
 
     }
+    //handler to change seekBarTime
+
     private Runnable updateSongTime=new Runnable() {
         @Override
         public void run() {
+            //get current position
             startTime=mediaPlayer.getCurrentPosition();
-            txtStart.setText(String.format(" %d:%d",
-                    TimeUnit.MILLISECONDS.toMinutes((long) startTime),
-                    TimeUnit.MILLISECONDS.toSeconds((long) startTime) -
-                            TimeUnit.MILLISECONDS.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) startTime))
-            ));
+
+            //set seekbar progress
             seekBar.setProgress((int)startTime);
+            //set time remaing
+            double timeRemaining = finalTime - startTime;
+
+            txtStart.setText(String.format("%d:%d", TimeUnit.MILLISECONDS.toMinutes((long) timeRemaining),
+                    TimeUnit.MILLISECONDS.toSeconds((long) timeRemaining) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) timeRemaining))));
+
+            //repeat yourself that again in 100 miliseconds
             seekHandler.postDelayed(this,100);
+
+
         }
     };
 

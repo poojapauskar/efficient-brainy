@@ -73,8 +73,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:id="@+id/seekbar"
-        />
-
+        android:progressDrawable="@drawable/seekbar_progressbar"
+        android:progress="0"
+        android:thumb="@drawable/seekbar_progressbar"
+        android:max="100" />
         </LinearLayout>
 
     <Button
@@ -94,11 +96,12 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/play"
+        android:src="@drawable/stopred"
         android:elevation="4dp"
         android:layout_marginBottom="75dp"
         android:layout_above="@+id/stopExit"
         android:layout_marginRight="5dp"
+        android:id="@+id/stopImageBtn"
         android:layout_alignEnd="@+id/linearLayout" />
 </RelativeLayout>
     </FrameLayout>
