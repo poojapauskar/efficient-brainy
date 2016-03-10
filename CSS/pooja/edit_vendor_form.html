@@ -1,0 +1,55 @@
+<html>
+<body>
+<head>
+<link rel="stylesheet" type="text/css" href="edit_vendor_form.css">
+<style>
+
+</style>
+</head>
+
+
+<h4>Edit Vendor Details</h4>
+
+<form action="" method="post" id="myform">
+            <label>Name:</label>
+            <input type="text" name="name" >
+            <br><br>
+            <label>City:</label>
+            <select required="True" class="custom" name="city" style="">
+                  <option value="" style="">Select City</option>
+                  <option value="">Belgaum</option>
+                  <option value="">Bangalore</option>
+                  <option value="">Puna</option>
+            </select>
+            <br><br>
+            <label>Email:</label>
+            <input type="email" name="email" >
+            <br><br>
+            <label>Mobile:</label>
+            <input type="text"  pattern="[0-9]{12}" title="Phone number starting with country code and 12 digits" name="phone" required>
+            <br><br>
+            <label>Address:</label>
+            <textarea rows="4"  name="address" form="myform"></textarea>
+            <br><br>
+            
+            <!-- <input type="text" placeholder="Address" name="address">
+            <br><br> -->
+            <label>Username:</label>
+            <input type="text" name="username"  required>
+            <br><br>
+            <label>Password:</label>
+            <input type="password" name="password"  pattern="[A-Za-z0-9]{8,16}" title="Password must contain 8-16 digits" required>
+            <br><br>
+            <!-- <input type="submit" value="Register"> -->
+
+            <button id="btn1" type="submit">Save Changes</button>
+            <button id="btn2" >Cancel</button>
+            <button id="btn3" >Delete</button>
+            
+    </form>
+
+
+
+
+</body>
+</html>
