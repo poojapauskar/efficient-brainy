@@ -40,7 +40,7 @@ if($_POST['city'] != '' && $_POST['pin_code'] != ''){
             <label>
               Pincode
             </label>
-            <input type="text" name="pin_code" required>
+            <input type="text" name="pin_code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." required>
             <br>
             <input type="submit" value="Add">
             

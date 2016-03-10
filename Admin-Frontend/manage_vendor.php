@@ -1,3 +1,26 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black ;
+    border-collapse: collapse;
+    font-size:17px;
+
+}
+th, td {
+    padding: 7px;
+}
+th{
+  font-family: OpenSans-Semibold;
+  text-align:left;
+}
+td{
+  font-family: OpenSans-Regular;
+  text-align:left;
+}
+</style>
+<body>
+
 <?php if($_POST['delete_user'] != ''){
 	$url_delete = 'http://0.0.0.0:8000/delete_user/id='.$_POST['delete_user'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 	$options_delete = array(
@@ -42,57 +65,20 @@ $arr3 = json_decode($output3,true);
 </form>
 
 
-
-
-
+<table style="">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>City</th>
+    <th></th>
+  </tr>
 <?php 
-  for ($x = 0; $x < count($arr3); $x++) { ?>
-
-  		
-      <form action="edit.php" method="post">
-      		<label>
-              User_id
-            </label>
-            <input type="text" readonly="true" name="user_id" value=<?php echo $arr3[$x]['pk'] ?>>
-            <br>
-            <label>
-              Username
-            </label>
-            <input type="text" readonly="true" name="username" value=<?php echo $arr3[$x]['username'] ?>>
-            <br>
-            <label>
-              Password
-            </label>
-            <input type="text" readonly="true" name="password" value=<?php echo $arr3[$x]['password'] ?>>
-            <br>
-            <label>
-              Name
-            </label>
-            <input type="text" readonly="true" name="name" value=<?php echo $arr3[$x]['name'] ?>>
-            <br>
-            <label>
-              Email
-            </label>
-            <input type="text" readonly="true" name="email" value=<?php echo $arr3[$x]['email'] ?>>
-            <br>
-            <label>
-              Phone
-            </label>
-            <input type="text" readonly="true" name="phone" value=<?php echo $arr3[$x]['phone'] ?>>
-            <br>
-            <label>
-              Address
-            </label>
-            <input type="text" readonly="true" name="address" value=<?php echo $arr3[$x]['address'] ?>>
-            <br>
+for ($x = 0; $x < count($arr3); $x++) { ?>
 <?php
 $url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$arr3[$x]['city_id'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city_name = array(
   'http' => array(
-    /*'header'  => array(
-                  'USERNAME: '.$_POST['username'],
-                  'PASSWORD: '.$_POST['password'],
-                ),*/
     'method'  => 'GET',
   ),
 );
@@ -100,26 +86,39 @@ $context_city_name= stream_context_create($options_city_name);
 $output_city_name = file_get_contents($url_city_name, false,$context_city_name);
 /*echo $output_city_name;*/
 $arr_city_name = json_decode($output_city_name,true);
-/*echo $arr_city_name[0]['name'];*/
+?>
+<form action="edit.php" method="post" id="form1">
+  <tr>
+  
+    <td><?php echo $arr3[$x]['name'] ?></td>
+    <td><?php echo $arr3[$x]['email'] ?></td>
+    <td><?php echo $arr3[$x]['phone'] ?></td> 
+  
+    <td><?php echo $arr_city_name[0]['name']; ?></td>
+    <td><input type="submit" value="edit"></td>
+  </tr>
 
 
-?>			
-			
-			<label>
-              City Id
-            </label>
-            <input type="text" readonly="true" name="city_id" value=<?php echo $arr3[$x]['city_id']; ?>>
-            <br>
+<input type="hidden" readonly="true" name="name" value=<?php echo $arr3[$x]['name'] ?>>
+<input type="hidden" readonly="true" name="email" value=<?php echo $arr3[$x]['email'] ?>>
+<input type="hidden" readonly="true" name="phone" value=<?php echo $arr3[$x]['phone'] ?>> 
+<input type="hidden" readonly="true" name="city" value=<?php echo $arr_city_name[0]['name']; ?>>
+<input type="hidden" readonly="true" name="user_id" value=<?php echo $arr3[$x]['pk'] ?>>
+<input type="hidden" readonly="true" name="username" value=<?php echo $arr3[$x]['username'] ?>>
+<input type="hidden" readonly="true" name="password" value=<?php echo $arr3[$x]['password'] ?>>
+<input type="hidden" readonly="true" name="address" value=<?php echo $arr3[$x]['address'] ?>>
+<input type="hidden" readonly="true" name="city_id" value=<?php echo $arr3[$x]['city_id']; ?>>
 
-            <label>
-              City
-            </label>
-            <input type="text" readonly="true" name="city" value=<?php echo $arr_city_name[0]['name']; ?>>
-            <br>
 
-            <input type="submit" value="edit">
-            
-	  </form>
-	  <br><br><br>
+</form>
+<br><br><br>
 <?php  } 
 ?>
+</table>
+
+
+</body>
+</html>
+
+
+

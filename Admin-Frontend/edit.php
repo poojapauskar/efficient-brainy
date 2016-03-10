@@ -27,7 +27,7 @@ $options_profile = array(
                   'EMAIL: '.$_POST['email'],
                   'PHONE: '.$_POST['phone'],
                   'CITY: '.$_POST['city1'],
-                  'ADDRESS: '.$_POST['addresss'],
+                  'ADDRESS: '.$_POST['address'],
                 ),
     'method'  => 'GET',
   ),
@@ -67,10 +67,10 @@ $profile = json_decode($output_profile,true);
 }?>
 
 <form action="" method="post">
-            <label>
+            <!-- <label>
               User_id
-            </label>
-            <input type="text" readonly="true" name="user_id" value="<?php echo $_POST['user_id'] ?>">
+            </label> -->
+            <input type="hidden" readonly="true" name="user_id" value="<?php echo $_POST['user_id'] ?>">
             <br>
       		  <label>
               Username

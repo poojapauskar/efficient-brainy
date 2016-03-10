@@ -20,10 +20,10 @@ $profile = json_decode($output_profile,true);
 ?>
 
 <form action="" method="post">
-            <label>
+            <!-- <label>
               City ID
-            </label>
-            <input type="text" readonly="true" name="city_id" value="<?php echo $_POST['city_id'] ?>">
+            </label> -->
+            <input type="hidden" readonly="true" name="city_id" value="<?php echo $_POST['city_id'] ?>">
             <br>
       		  <label>
               City
@@ -33,7 +33,7 @@ $profile = json_decode($output_profile,true);
             <label>
               Pincode
             </label>
-            <input type="text" name="pin_code" value="<?php echo $_POST['pin_code']?>">
+            <input type="text" name="pin_code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." value="<?php echo $_POST['pin_code']?>">
             <br>
             
             <input type="submit" value="Save Changes">

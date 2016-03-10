@@ -1,3 +1,26 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black ;
+    border-collapse: collapse;
+    font-size:17px;
+
+}
+th, td {
+    padding: 7px;
+}
+th{
+  font-family: OpenSans-Semibold;
+  text-align:left;
+}
+td{
+  font-family: OpenSans-Regular;
+  text-align:left;
+}
+</style>
+<body>
+
 <?php if($_POST['delete_city'] != ''){
   $url_delete = 'http://0.0.0.0:8000/delete_city/id='.$_POST['delete_city'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
   $options_delete = array(
@@ -43,31 +66,34 @@ $arr3 = json_decode($output3,true);
 
 
 
-
-
+<table style="">
+  <tr>
+    <!-- <th>City Id</th> -->
+    <th>City</th>
+    <th>Pincode</th>
+    <th></th>
+  </tr>
 <?php 
-  for ($x = 0; $x < count($arr3); $x++) { ?>
+for ($x = 0; $x < count($arr3); $x++) { ?>
+<form action="edit_city.php" method="post">
+  <tr>
+    <td><?php echo $arr3[$x]['name'] ?></td>
+    <td><?php echo $arr3[$x]['pin_code'] ?></td> 
+    <td><input type="submit" value="edit"></td>
+  </tr>
 
-  		
-      <form action="edit_city.php" method="post">
-      		<label>
-              City Id
-            </label>
-            <input type="text" readonly="true" name="city_id" value=<?php echo $arr3[$x]['id'] ?>>
-            <br>
-            <label>
-              City
-            </label>
-            <input type="text" readonly="true" name="city" value=<?php echo $arr3[$x]['name'] ?>>
-            <br>
-            <label>
-              Pincode
-            </label>
-            <input type="text" readonly="true" name="pin_code" value=<?php echo $arr3[$x]['pin_code'] ?>>
-            <br>
-            <input type="submit" value="edit">
-            
-	  </form>
-	  <br><br><br>
+<input type="hidden" readonly="true" name="city" value=<?php echo $arr3[$x]['name'] ?>>
+<input type="hidden" readonly="true" name="pin_code" value=<?php echo $arr3[$x]['pin_code'] ?>>
+<input type="hidden" readonly="true" name="city_id" value=<?php echo $arr3[$x]['id'] ?>>
+
+
+</form>
+<br><br><br>
 <?php  } 
 ?>
+</table>
+
+</body>
+</html>
+
+
