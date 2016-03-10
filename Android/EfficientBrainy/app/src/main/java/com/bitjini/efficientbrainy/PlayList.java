@@ -2,21 +2,34 @@ package com.bitjini.efficientbrainy;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by bitjini on 2/3/16.
  */
 public class PlayList extends Fragment implements View.OnClickListener {
+
+    String URL_Generate_OTP = "https://efficient-brainy.herokuapp.com/generate_otp/?access_token=";
+    SharedPreferences sharedPreferences;
+    String token_sharedPreference;
 
     Button play1,play2,play3,play4;
     View playView;
@@ -26,6 +39,9 @@ public class PlayList extends Fragment implements View.OnClickListener {
 
         playView = inflater.inflate(R.layout.play_list, container, false);
 
+        InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (getActivity().getCurrentFocus() != null){
+        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);}
 
         play1=(Button)playView.findViewById(R.id.play1);
         play2=(Button)playView.findViewById(R.id.play2);
@@ -39,6 +55,7 @@ public class PlayList extends Fragment implements View.OnClickListener {
 
 return playView;
 
+
     }
 
 
@@ -46,6 +63,20 @@ return playView;
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.play1:
+//                Login l=new Login();
+//                l.sharedPreferences = getActivity().getSharedPreferences(l.Efficient_Brainy, 0);
+//                String token_sharedPreference =l.sharedPreferences.getString(l.TOKEN_KEY, null);
+//                System.out.println(" getting token from sharedpreference " + token_sharedPreference);
+//
+//
+//                try {
+//                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+
                 FragmentManager fm = getFragmentManager();
                 Otp dialogFragment = new Otp ();
 

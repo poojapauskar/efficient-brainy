@@ -1,13 +1,9 @@
 package com.bitjini.efficientbrainy;
 
-import android.app.Activity;
-import android.app.Notification;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -15,35 +11,25 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.NameValuePair;
-import org.apache.http.StatusLine;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by bitjini on 2/3/16.
@@ -51,11 +37,11 @@ import java.util.List;
 public class Login extends Fragment {
     String URL_Login = "https://efficient-brainy.herokuapp.com/login/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9";
 
-    String token_sharedPreference, phone_sharedPreference, vz_id_sharedPreference;
+    String token_sharedPreference;
 
-    public static final String VZCARD_PREFS = "MySharedPref";
+    public static final String Efficient_Brainy = "SharedPref";
     public SharedPreferences sharedPreferences;
-    public String TOKEN_KEY = "token";
+    public String TOKEN_KEY = "access_token";
     ;
 
     String username, password;
@@ -81,16 +67,10 @@ public class Login extends Fragment {
 
 
                 sendGetRequest(view);
-//               Fragment newfragment = new PlayList();
-//                // get the id of fragment
-//                FrameLayout contentView2 = (FrameLayout) loginView.findViewById(R.id.login_frame);
+                InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (getActivity().getCurrentFocus() != null){
+                    inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);}
 //
-//                // Insert the fragment by replacing any existing fragment
-//                FragmentManager fragmentManager1 = getFragmentManager();
-//                fragmentManager1.beginTransaction()
-//                        .replace(contentView2.getId(), newfragment)
-//                        .commit();
-
             }
         });
         return loginView;
@@ -124,63 +104,125 @@ public class Login extends Fragment {
             // params comes from the execute() call: params[0] is the url.
             try {
                 return downloadUrl(urls[0]);
-            } catch (IOException e) {
+            } catch (Exception e) {
                 return "Unable to download the requested page.";
             }
         }
 
-        private String downloadUrl(String urlString) throws IOException {
+        private String downloadUrl(String urlString)  {
             String response = null;
             try {
 //                final TextView outputView = (TextView) findViewById(R.id.content);
 
 
-                HttpClient httpclient = new DefaultHttpClient();
-
-
-
+//
                 username = unameTxt.getText().toString();
                 password = pwdTxt.getText().toString();
 
-                HttpGet httpGet = new HttpGet(urlString); // create new httpGet object
-                httpGet.setHeader("Accept", "application/xml");
-                httpGet.setHeader("Content-Type", "application/xml");
-                httpGet.addHeader("Username",username);
-                httpGet.addHeader("Password",password);
+             HttpClient client = new DefaultHttpClient();
 
+            HttpResponse httpResponse;
 
-                StringBuilder sb = new StringBuilder();
+                HttpGet request = new HttpGet(urlString);
+                request.addHeader("username",username);
+                request.addHeader("password",password);
 
-                    HttpResponse responsehttp = httpclient.execute(httpGet); // execute httpGet
-                    StatusLine statusLine = responsehttp.getStatusLine();
-                    int statusCode = statusLine.getStatusCode();
-                    if (statusCode == HttpStatus.SC_OK) {
-                        // System.out.println(statusLine);
-                        sb.append(statusLine + "\n");
-                        HttpEntity e = responsehttp.getEntity();
-                        String entity = EntityUtils.toString(e);
-                        sb.append(entity);
-                        Log.e("Response :",""+entity);
-                    } else {
-                        sb.append(statusLine + "\n");
-                        // System.out.println(statusLine);
-                    }
+                httpResponse = client.execute(request);
+                int responseCode = httpResponse.getStatusLine().getStatusCode();
+                String message = httpResponse.getStatusLine().getReasonPhrase();
+                Log.e("responseCode..",""+responseCode);
+                Log.e("message..",""+message);
+                HttpEntity entity = httpResponse.getEntity();
 
-                return sb.toString(); // return the String
-                } catch (ClientProtocolException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
+                if (entity != null) {
 
+                    InputStream instream = entity.getContent();
+                    response = convertStreamToString(instream);
+                   Log.e("Response..",""+response);
+                    // Closing the input stream will trigger connection release
+                    instream.close();
                 }
+               return response;
+
+            } catch (ClientProtocolException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             return null;
-
         }
+        private  String convertStreamToString(InputStream is) {
 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            StringBuilder sb = new StringBuilder();
+
+            String line = null;
+            try {
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return sb.toString();
+        }
         protected void onPostExecute(String result) {
             progress.dismiss();
+
+            try {
+                JSONObject jsonresrponse= new JSONObject(result);
+
+                int status=jsonresrponse.getInt("status");
+                String access_token=jsonresrponse.getString("access_token");
+                Log.e(" access_token =",""+access_token);
+                Log.e(" status =",""+status);
+
+                if(status==200)
+                {
+                    sharedPreferences = getActivity().getSharedPreferences(Efficient_Brainy, 0);
+                    SharedPreferences.Editor sEdit = sharedPreferences.edit();
+                    String token= String.valueOf(sEdit.putString(TOKEN_KEY, access_token));
+                    sEdit.commit();
+                    System.out.println(" saving token generated " + token);
+
+
+                    SharedPreferences sharedPreferences2 = getActivity().getSharedPreferences(Efficient_Brainy, 0);
+                    token_sharedPreference=sharedPreferences2.getString(TOKEN_KEY,access_token);
+
+                    Log.e(" getting token  ",""+ token_sharedPreference);
+
+                    Fragment newfragment = new PlayList();
+                    // get the id of fragment
+                    FrameLayout contentView2 = (FrameLayout) loginView.findViewById(R.id.login_frame);
+
+                    // Insert the fragment by replacing any existing fragment
+                    FragmentManager fragmentManager1 = getFragmentManager();
+                    fragmentManager1.beginTransaction()
+                            .replace(contentView2.getId(), newfragment)
+                            .commit();
+
+
+                }
+                else  if(status==400 || username.length()==0 || password.length()==0){
+                    // to hide the keyboard
+                    InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    if (getActivity().getCurrentFocus() != null){
+                        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);}
+                    Toast.makeText(getActivity(),"Invalid Credentials. Please enter valid username and password",Toast.LENGTH_LONG).show();
+                }
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
+

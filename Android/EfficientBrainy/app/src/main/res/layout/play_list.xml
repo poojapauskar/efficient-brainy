@@ -24,13 +24,13 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="120dp"
         android:layout_width="280dp"
         android:gravity="center"
         android:elevation="4dp"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         android:background="#ffff">
     <Button
         android:layout_gravity="center"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Play File 1"
         android:textColor="#489955"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:background="@android:drawable/editbox_background_normal"
         android:elevation="6dp"
         android:id="@+id/play1"/>
@@ -71,7 +71,7 @@
         android:background="@android:drawable/editbox_background_normal"
         android:elevation="6dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="40dp"
         android:id="@+id/play4"/>
 
 </LinearLayout>

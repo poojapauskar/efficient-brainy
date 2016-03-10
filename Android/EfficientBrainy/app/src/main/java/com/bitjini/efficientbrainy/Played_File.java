@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by bitjini on 2/3/16.
  */
-public class Played_File extends Activity implements SeekBar.OnSeekBarChangeListener {
+public class Played_File extends Activity {
     Button stopExit;
     SeekBar seekBar;
     Handler seekHandler = new Handler();
@@ -92,7 +92,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         seekBar.setProgress(0);
         // to remove the default indicator icon
 //        seekBar.getThumb().mutate().setAlpha(0);
-        seekBar.setOnSeekBarChangeListener(this);
+
   imgStop.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -205,7 +205,12 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
         seekBar.setProgress((int) startTime);
         seekHandler.postDelayed(updateSongTime, 100);
 
-
+  mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+      @Override
+      public void onCompletion(MediaPlayer mediaPlayer) {
+          onBackPressed();
+      }
+  });
 
     }
 
@@ -220,6 +225,9 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
             mediaPlayer.stop();
 
         }
+        tempMp3.delete();
+
+        mediaPlayer.stop();
 
     }
     //handler to change seekBarTime
@@ -275,27 +283,7 @@ public class Played_File extends Activity implements SeekBar.OnSeekBarChangeList
                 .commit();
         finish();
     }
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
 
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-
-    }
-
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                if (mediaPlayer != null && fromUser) {
-//                    mediaPlayer.seekTo(progress * 1000);
-//                }
-        if(fromUser)
-        {
-            mediaPlayer.seekTo(progress);
-            seekBar.setProgress(progress);
-        }
-    }
 
 }
 

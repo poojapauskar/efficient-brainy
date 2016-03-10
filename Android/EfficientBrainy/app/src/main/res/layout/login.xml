@@ -38,9 +38,12 @@
         android:layout_height="wrap_content"
         android:hint="Username"
         android:singleLine="true"
+        android:inputType="text"
         android:layout_marginLeft="10dp"
         android:padding="10dp"
         android:layout_marginRight="10dp"
+        android:textStyle="normal"
+        android:fontFamily="monospace"
         android:background="@drawable/editbox"
         android:id="@+id/uname"
         />
@@ -51,6 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Password"
+        android:textStyle="normal"
+        android:fontFamily="monospace"
+        android:inputType="textPassword"
         android:singleLine="true"
         android:padding="10dp"
         android:layout_marginRight="10dp"
@@ -63,6 +69,8 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="SIGN IN"
+        android:background="#4caf50"
+        android:textColor="#ffff"
         android:layout_marginTop="40dp"
         android:id="@+id/loginbtn"/>
 </LinearLayout>
