@@ -16,6 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
+            android:textSize="20sp"
             app:title="Now Playing"
             app:titleMarginStart="50dp"
             app:titleTextColor="#ffff"
@@ -36,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
+            android:id="@+id/txtFile"
             android:layout_marginLeft="10dp"
             android:text="Playing File1"/>
 

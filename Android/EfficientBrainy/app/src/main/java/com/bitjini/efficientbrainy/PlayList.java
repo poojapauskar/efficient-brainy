@@ -28,7 +28,7 @@ import java.util.concurrent.ExecutionException;
 public class PlayList extends Fragment implements View.OnClickListener {
 
     String URL_Generate_OTP = "https://efficient-brainy.herokuapp.com/generate_otp/?access_token=";
-    SharedPreferences sharedPreferences;
+
     String token_sharedPreference;
 
     Button play1,play2,play3,play4;
@@ -39,9 +39,7 @@ public class PlayList extends Fragment implements View.OnClickListener {
 
         playView = inflater.inflate(R.layout.play_list, container, false);
 
-        InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (getActivity().getCurrentFocus() != null){
-        inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);}
+
 
         play1=(Button)playView.findViewById(R.id.play1);
         play2=(Button)playView.findViewById(R.id.play2);
@@ -53,6 +51,11 @@ public class PlayList extends Fragment implements View.OnClickListener {
         play3.setOnClickListener(this);
         play4.setOnClickListener(this);
 
+        Login l=new Login();
+        l.sharedPreferences = getActivity().getSharedPreferences(l.Efficient_Brainy, 0);
+       token_sharedPreference =l.sharedPreferences.getString(l.TOKEN_KEY, null);
+        System.out.println(" getting token from sharedpreference " + token_sharedPreference);
+
 return playView;
 
 
@@ -63,62 +66,86 @@ return playView;
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.play1:
-//                Login l=new Login();
-//                l.sharedPreferences = getActivity().getSharedPreferences(l.Efficient_Brainy, 0);
-//                String token_sharedPreference =l.sharedPreferences.getString(l.TOKEN_KEY, null);
-//                System.out.println(" getting token from sharedpreference " + token_sharedPreference);
-//
-//
-//                try {
-//                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } catch (ExecutionException e) {
-//                    e.printStackTrace();
-//                }
+
+
+                try {
+                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
+
 
                 FragmentManager fm = getFragmentManager();
                 Otp dialogFragment = new Otp ();
 
                 Bundle args = new Bundle();
                 args.putString("audio", "audio_1.xxx");
+                    args.putString("file", "Playing File 1");
+
                 dialogFragment.setArguments(args);
                 dialogFragment.show(fm, "Sample Fragment");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 
                 break;
             case R.id.play2:
-                FragmentManager fm2 = getFragmentManager();
+                try {
+                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
+
+                    FragmentManager fm2 = getFragmentManager();
                 Otp dialogFragment2 = new Otp ();
 
                 Bundle args2 = new Bundle();
                 args2.putString("audio", "audio_2.xxx");
-
+                    args2.putString("file", "Playing File 2");
                 dialogFragment2.setArguments(args2);
                 dialogFragment2.show(fm2, "Sample Fragment");
 
-
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
                 break;
             case R.id.play3:
-                FragmentManager fm3 = getFragmentManager();
+                try {
+                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
+
+                    FragmentManager fm3 = getFragmentManager();
                 Otp dialogFragment3 = new Otp ();
 
                 Bundle args3 = new Bundle();
                 args3.putString("audio", "audio_3.xxx");
+                    args3.putString("file", "Playing File 3");
                 FrameLayout contentView3 = (FrameLayout)playView.findViewById(R.id.file_frame);
                 dialogFragment3.setArguments(args3);
                 dialogFragment3.show(fm3, "Sample Fragment");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 
                 break;
             case R.id.play4:
-                FragmentManager fm4 = getFragmentManager();
+                try {
+                    new GetOtp_AsyncTask(getActivity()).execute(URL_Generate_OTP+token_sharedPreference).get();
+
+                    FragmentManager fm4 = getFragmentManager();
                 Otp dialogFragment4 = new Otp ();
 
                 Bundle args4 = new Bundle();
                 args4.putString("audio", "audio_4.xxx");
+                    args4.putString("file", "Playing File 4");
                 FrameLayout contentView4 = (FrameLayout)playView.findViewById(R.id.file_frame);
                 dialogFragment4.setArguments(args4);
                 dialogFragment4.show(fm4, "Sample Fragment");
                 break;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 
         }
     }

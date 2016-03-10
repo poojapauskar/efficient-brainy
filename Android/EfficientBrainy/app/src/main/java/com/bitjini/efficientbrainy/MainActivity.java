@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
         splashBtn=(ImageView)findViewById(R.id.splashbtn);
 
 
-        CountDownTimer countDownTimer = new CountDownTimer(10000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
                 public void onTick(long millisUntilFinished) {
 //                    timerText.setText(" Started Timer to play audio- seconds remaining: " + millisUntilFinished / 1000);
 

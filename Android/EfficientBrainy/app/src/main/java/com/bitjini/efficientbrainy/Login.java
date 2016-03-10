@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,15 +49,15 @@ public class Login extends Fragment {
     private ProgressDialog progress;
     Button loginBtn;
     View loginView;
-    TextView unameTxt, pwdTxt;
+    EditText unameTxt, pwdTxt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         loginView = inflater.inflate(R.layout.login, container, false);
-        unameTxt = (TextView) loginView.findViewById(R.id.uname);
-        pwdTxt = (TextView) loginView.findViewById(R.id.pwd);
+        unameTxt = (EditText) loginView.findViewById(R.id.uname);
+        pwdTxt = (EditText) loginView.findViewById(R.id.pwd);
 
 
         loginBtn = (Button) loginView.findViewById(R.id.loginbtn);

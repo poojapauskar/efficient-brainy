@@ -44,6 +44,7 @@ public class Played_File extends Activity {
     Context ctx;
 
     TextView txtDuration, txtStart;
+    TextView txtFile;
     private final String KEY = "abc";
     File tempMp3;
 
@@ -58,6 +59,9 @@ public class Played_File extends Activity {
 
         txtStart=(TextView) findViewById(R.id.txtStart);
         txtDuration=(TextView) findViewById(R.id.txtDuration);
+
+        txtFile=(TextView) findViewById(R.id.txtFile);
+
         seekBar = (SeekBar)findViewById(R.id.seekbar);
         imgStop=(ImageView) findViewById(R.id.stopImageBtn);
         stopExit = (Button) findViewById(R.id.stopExit);
@@ -118,6 +122,8 @@ public class Played_File extends Activity {
         try {
             // retrieve audio file sent by Otp class
             String audio = getIntent().getStringExtra("audio");
+            String txtFilestr = getIntent().getStringExtra("file");
+            txtFile.setText(txtFilestr);
 
             InputStream is = am.open(audio);
             int length = is.available();
@@ -205,6 +211,7 @@ public class Played_File extends Activity {
         seekBar.setProgress((int) startTime);
         seekHandler.postDelayed(updateSongTime, 100);
 
+        //to exit on completion of file duration
   mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
       @Override
       public void onCompletion(MediaPlayer mediaPlayer) {
@@ -279,7 +286,7 @@ public class Played_File extends Activity {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager1 = getFragmentManager();
         fragmentManager1.beginTransaction()
-                .replace(contentView1.getId(), newfragment)
+                .replace(contentView1.getId(), newfragment).addToBackStack(null)
                 .commit();
         finish();
     }
