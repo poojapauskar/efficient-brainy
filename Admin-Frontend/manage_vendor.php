@@ -45,64 +45,6 @@ $arr3 = json_decode($output3,true);
 
 
 
-<!-- <form action="add_vendor.php">
-    <input type="submit" value="Add vendor">
-</form>
-
-
-<table style="">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>City</th>
-    <th></th>
-  </tr>
-<?php 
-for ($x = 0; $x < count($arr3); $x++) { ?>
-<?php
-$url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$arr3[$x]['city_id'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
-$options_city_name = array(
-  'http' => array(
-    'method'  => 'GET',
-  ),
-);
-$context_city_name= stream_context_create($options_city_name);
-$output_city_name = file_get_contents($url_city_name, false,$context_city_name);
-/*echo $output_city_name;*/
-$arr_city_name = json_decode($output_city_name,true);
-?>
-<form action="edit.php" method="post" id="form1">
-  <tr>
-  
-    <td><?php echo $arr3[$x]['name'] ?></td>
-    <td><?php echo $arr3[$x]['email'] ?></td>
-    <td><?php echo $arr3[$x]['phone'] ?></td> 
-  
-    <td><?php echo $arr_city_name[0]['name']; ?></td>
-    <td><input type="submit" value="edit"></td>
-  </tr>
-
-
-<input type="hidden" readonly="true" name="name" value=<?php echo $arr3[$x]['name'] ?>>
-<input type="hidden" readonly="true" name="email" value=<?php echo $arr3[$x]['email'] ?>>
-<input type="hidden" readonly="true" name="phone" value=<?php echo $arr3[$x]['phone'] ?>> 
-<input type="hidden" readonly="true" name="city" value=<?php echo $arr_city_name[0]['name']; ?>>
-<input type="hidden" readonly="true" name="user_id" value=<?php echo $arr3[$x]['pk'] ?>>
-<input type="hidden" readonly="true" name="username" value=<?php echo $arr3[$x]['username'] ?>>
-<input type="hidden" readonly="true" name="password" value=<?php echo $arr3[$x]['password'] ?>>
-<input type="hidden" readonly="true" name="address" value=<?php echo $arr3[$x]['address'] ?>>
-<input type="hidden" readonly="true" name="city_id" value=<?php echo $arr3[$x]['city_id']; ?>>
-
-
-</form>
-<br><br><br>
-<?php  } 
-?>
-</table> -->
-
-
-
 <h4>Manage Vendor</h4>
 
 <form action="add_vendor.php">

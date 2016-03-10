@@ -1,23 +1,8 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="manage_city.css">
 <style>
-table, th, td {
-    border: 1px solid black ;
-    border-collapse: collapse;
-    font-size:17px;
 
-}
-th, td {
-    padding: 7px;
-}
-th{
-  font-family: OpenSans-Semibold;
-  text-align:left;
-}
-td{
-  font-family: OpenSans-Regular;
-  text-align:left;
-}
 </style>
 <body>
 
@@ -60,18 +45,23 @@ $arr3 = json_decode($output3,true);
 
 
 
+
+   
+
+
+
+<h4>Manage City</h4>
+
 <form action="add_city.php">
-    <input type="submit" value="Add city">
+<button type="submit" >Add New City</button>
 </form>
 
-
-
-<table style="">
+<table>
   <tr>
     <!-- <th>City Id</th> -->
     <th>City</th>
     <th>Pincode</th>
-    <th></th>
+    <th>Action</th>
   </tr>
 <?php 
 for ($x = 0; $x < count($arr3); $x++) { ?>
@@ -79,7 +69,7 @@ for ($x = 0; $x < count($arr3); $x++) { ?>
   <tr>
     <td><?php echo $arr3[$x]['name'] ?></td>
     <td><?php echo $arr3[$x]['pin_code'] ?></td> 
-    <td><input type="submit" value="edit"></td>
+    <td><button id="edit" type="submit">edit</button></td>
   </tr>
 
 <input type="hidden" readonly="true" name="city" value=<?php echo $arr3[$x]['name'] ?>>
