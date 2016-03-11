@@ -49,7 +49,7 @@ if($arr2['status']==200){
 
 <div class="container-fluid"><!-- MAIN CONTAINER Begins -->
     
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#" style="text-decoration:none;">
@@ -85,10 +85,18 @@ if($arr2['status']==200){
 
     <div class="row" style="padding:5%;"></div>
 
-    <div class="row">
-      <hr>
-      <p>2016 Efficient Brainy. All Rights Reserved.</p>
-    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom" id="nav_bottom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+        </div>
+
+        <div class="row" style="padding:1%;">
+          <hr>
+          <p style="font-size:8px; text-align:center; margin-top:-1%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+        </div>
+      </div>
+    </nav>
 
   </div>      
 </div>

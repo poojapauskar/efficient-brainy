@@ -46,7 +46,7 @@ $arr3 = json_decode($output3,true);
 
 ?>
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#" style="text-decoration:none;">
@@ -121,10 +121,18 @@ $arr_city_name = json_decode($output_city_name,true);
   
 </table>
 
-<div class="row">
-      <hr>
-      <p>2016 Efficient Brainy. All Rights Reserved.</p>
-    </div>
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nav_bottom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+        </div>
+
+        <div class="row" style="padding:1%;">
+          <hr>
+          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+        </div>
+      </div>
+    </nav>
 
 </body>
 </html>

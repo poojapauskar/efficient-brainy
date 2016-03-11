@@ -1,5 +1,10 @@
 
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="generate_otp.css">
+<link rel="stylesheet" type="text/css" href="navigation_footer.css">
+
+</head>
 <body>
 <script>
 function change(){
@@ -59,7 +64,7 @@ $options_get_otp = array(
 );
 $context_get_otp = stream_context_create($options_get_otp);
 $output_get_otp = file_get_contents($url_get_otp, false,$context_get_otp);
-/*echo $output3;*/
+/*echo $output_get_otp;*/
 $arr_get_otp = json_decode($output_get_otp,true);
 
 
@@ -113,8 +118,22 @@ if($arr_send_msg_mail[0]['status']==200){
   $value1=$arr_get_otp['vendor_id'];
 }?>
 
+
+<nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </nav>
+
+<h4>Generate  OTP</h4>
+
 <form action="" method="post" id="myform">
-      		  <select class="custom" name="city_selected" style="" onchange="change()">
+            
+            <select class="custom" name="city_selected" style="" onchange="change()">
               <option value=<?php echo $value; ?>><?php echo $option; ?></option>
             
             <?php for ($x = 0; $x < count($arr3); $x++) { ?>
@@ -132,19 +151,37 @@ if($arr_send_msg_mail[0]['status']==200){
             </select>
             <br>
             <br>
-            <input type="submit" value="Generate OTP">
-            
-	  </form>
 
-
-
-
-
-    <form action="" method="post" id="">
-             <input type="hidden" name="vendor_id" value=<?php echo $arr_get_otp['vendor_id']; ?>>
-            <input type="text" name="generated_otp" value=<?php echo $arr_get_otp['otp'][0]['otp']; ?>>
-            <input type="submit" value="Send OTP">
+            <button id="btn1" type="submit">Generate OTP</button>
+           
             
     </form>
+
+
+    <form action="" method="post" id="send_form">
+             <input type="hidden" name="vendor_id" value=<?php echo $arr_get_otp['vendor_id']; ?>>
+            <!-- <input type="text" name="generated_otp" value=<?php echo $arr_get_otp['otp'][0]['otp']; ?>> -->
+
+            <button id="btn2" type="submit">Send OTP</button>
+            
+    </form>
+
+<h4 form="send_form" style="color:#49AC4D;margin-left:44%"><?php echo $arr_get_otp['otp'][0]['otp']; ?></h4>
+<!-- 
+<input type="text" form="send_form" name="generated_otp" value=<?php echo $arr_get_otp['otp'][0]['otp']; ?>> -->
+
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nav_bottom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+        </div>
+
+        <div class="row" style="padding:1%;">
+          <hr>
+          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+        </div>
+      </div>
+    </nav> 
+
 </body>
 </html>

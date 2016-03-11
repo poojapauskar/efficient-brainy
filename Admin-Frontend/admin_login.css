@@ -44,11 +44,16 @@ body{
 #logo{
 
 }
-.navbar-default{
-	border: none;
-	padding: 2%;
-	background-color: white;
+#nav_top{
+  border: none;
+  padding: 2%;
+  background-color: white;
+}
 
+#nav_bottom{
+  border: none;
+  padding: 0.5%;
+  background-color: white;
 }
 
 img{
