@@ -42,14 +42,22 @@ body{
 }
 
 
-
-#logo{
-
-}
 .navbar-default{
 	border: none;
 	padding: 2%;
 	background-color: white;
+}
+
+#hello_user{
+  color:#4caf50;
+  font-family:Lato-Black;
+  font-size:14px;
+}
+#log_out{
+  color:black;
+  opacity:0.3;
+  font-family:Lato-Bold;
+  font-size:12px;
 }
 
 img{
@@ -57,18 +65,17 @@ img{
   margin-top: -10%;
 }
 
-ul,li{
-  float: right;
-}
-
-.navbar-right{
-  margin:0 auto;
-}
-
 .btn-md.round {
     border-radius: 24px;
-    background-color: #2196f3;
-    width: 15%;
+    background-color:#1976d2;
+    width: 70%;
     color: white;
-    margin-left: 10%; 
+    font-family: Lato-Bold;
+}
+
+hr{
+  width:60%;
+  margin-left: 19%;
+  border-color:black;
+  border-width:1px;
 }
