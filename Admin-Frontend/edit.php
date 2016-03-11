@@ -86,6 +86,13 @@ $profile = json_decode($output_profile,true);
 
 <h4>Edit Vendor Details</h4>
 
+<?php 
+if($profile['status']==200){
+ $message2="Changes Saved";
+}
+?>
+<h6 style="color:#49AC4D;margin-left:44%;font-size:14px;"><?php echo $message2;?></h6>  
+
 <form action="" method="post" id="myform">
             <input type="hidden" readonly="true" name="user_id" value="<?php echo $_POST['user_id'] ?>">
             <br>

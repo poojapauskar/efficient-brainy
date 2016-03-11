@@ -55,6 +55,14 @@ $profile = json_decode($output_profile,true);
 
 <h4>Edit City Details</h4>
 
+<?php 
+if($profile['status']==200){
+ $message2="Changes Saved";
+}
+?>
+<h6 style="color:#49AC4D;margin-left:43%;font-size:14px;"><?php echo $message2;?></h6>  
+
+
 <form action="" method="post" id="myform">
             <input type="hidden" readonly="true" name="city_id" value="<?php echo $_POST['city_id'] ?>">
             <br>
