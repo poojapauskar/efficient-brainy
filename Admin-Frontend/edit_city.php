@@ -16,7 +16,7 @@
     </nav>
 
 <?php
-$url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_city = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
   'http' => array(
     /*'header'  => array(
@@ -34,7 +34,7 @@ $city = json_decode($output_city,true);
 
 ?>
 <?php
-$url_profile = 'http://0.0.0.0:8000/get_edit_city/update/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_profile = 'https://efficient-brainy.herokuapp.com/get_edit_city/update/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_profile = array(
   'http' => array(
     'header'  => array(

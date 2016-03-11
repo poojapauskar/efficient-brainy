@@ -9,7 +9,7 @@
 
 
 <?php if($_POST['delete_city'] != ''){
-  $url_delete = 'http://0.0.0.0:8000/delete_city/id='.$_POST['delete_city'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+  $url_delete = 'https://efficient-brainy.herokuapp.com/delete_city/id='.$_POST['delete_city'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
   $options_delete = array(
     'http' => array(
       /*'header'  => array(
@@ -27,7 +27,7 @@
 }?>
 
 <?php
-$url3 = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url3 = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options3 = array(
   'http' => array(
     /*'header'  => array(
