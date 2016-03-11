@@ -1,23 +1,8 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="manage_vendor.css">
 <style>
-table, th, td {
-    border: 1px solid black ;
-    border-collapse: collapse;
-    font-size:17px;
 
-}
-th, td {
-    padding: 7px;
-}
-th{
-  font-family: OpenSans-Semibold;
-  text-align:left;
-}
-td{
-  font-family: OpenSans-Regular;
-  text-align:left;
-}
 </style>
 <body>
 
@@ -60,19 +45,25 @@ $arr3 = json_decode($output3,true);
 
 
 
+<h4>Manage Vendor</h4>
+
 <form action="add_vendor.php">
-    <input type="submit" value="Add vendor">
+   <!--  <input type="submit" value="Add vendor"> -->
+    <button type="submit">Add New Vendor</button>
 </form>
 
 
-<table style="">
+
+<table>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
+    <!-- <th>City Id</th> -->
+    <th>Vendor Name</th>
     <th>City</th>
-    <th></th>
+    <th>Email</th>
+    <th>Contact</th>
+    <th>Action</th>
   </tr>
+
 <?php 
 for ($x = 0; $x < count($arr3); $x++) { ?>
 <?php
@@ -91,11 +82,13 @@ $arr_city_name = json_decode($output_city_name,true);
   <tr>
   
     <td><?php echo $arr3[$x]['name'] ?></td>
+    <td><?php echo $arr_city_name[0]['name']; ?></td>
     <td><?php echo $arr3[$x]['email'] ?></td>
     <td><?php echo $arr3[$x]['phone'] ?></td> 
   
-    <td><?php echo $arr_city_name[0]['name']; ?></td>
-    <td><input type="submit" value="edit"></td>
+    
+    <!-- <td><input type="submit" value="edit"></td> -->
+    <td><button id="edit" type="submit">edit</button></td>
   </tr>
 
 
@@ -114,6 +107,7 @@ $arr_city_name = json_decode($output_city_name,true);
 <br><br><br>
 <?php  } 
 ?>
+  
 </table>
 
 
