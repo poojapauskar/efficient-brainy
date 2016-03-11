@@ -21,7 +21,7 @@
 
 <?php
 if($_POST['username'] != '' && $_POST['password'] != ''){
-$url2 = 'http://0.0.0.0:8000/is_admin_login/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url2 = 'https://efficient-brainy.herokuapp.com/is_admin_login/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options2 = array(
   'http' => array(
     'header'  => array(
@@ -59,7 +59,7 @@ if($arr2['status']==200){
       </div>
     </nav>
 
-<?php if($arr2['status']!=200){
+<?php if($arr2['status']==400 || $arr['status'] == 401){
           $error="Invalid Admin Credentials";
 }?>
 
@@ -69,7 +69,7 @@ if($arr2['status']==200){
       <div class="col-sm-5" style="background-color:; padding:12%;">
         <p id="form_title">Admin Console</p>
 
-<h6 style="color:#F03F32;margin-left:23%"><?php echo $error;?></h6>
+<h6 style="color:#F03F32;margin-left:22%"><?php echo $error;?></h6>
  
         <form role="form" action="" method="post">
           <div class="form-group">
