@@ -186,7 +186,7 @@ $option3="Select City";
           
         </div>
 
-        <div class="row" style="padding:1%;">
+        <div class="row" style="padding:9%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>

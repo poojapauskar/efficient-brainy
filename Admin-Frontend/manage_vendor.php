@@ -129,7 +129,7 @@ $arr_city_name = json_decode($output_city_name,true);
 
         <div class="row" style="padding:1%;">
           <hr>
-          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+          <p style="font-size:8px; text-align:center; margin-top:1%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>
       </div>
     </nav>

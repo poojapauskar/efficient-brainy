@@ -99,7 +99,7 @@ if($profile['status']==200){
           
         </div>
 
-        <div class="row" style="padding:20%;">
+        <div class="row" style="padding:21%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>

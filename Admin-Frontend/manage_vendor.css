@@ -93,3 +93,7 @@ button{
   font-family: Lato Bold;
   box-shadow: 2px 4px 5px #B9B9B9;
 }
+
+button:focus{
+  outline: none;
+}

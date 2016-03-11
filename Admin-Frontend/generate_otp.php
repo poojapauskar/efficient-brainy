@@ -176,7 +176,7 @@ if($arr_send_msg_mail[0]['status']==200){
           
         </div>
 
-        <div class="row" style="padding:1%;">
+        <div class="row" style="padding:23%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>

@@ -101,7 +101,7 @@ for ($x = 0; $x < count($arr3); $x++) { ?>
 
         <div class="row" style="padding:1%;">
           <hr>
-          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+          <p style="font-size:8px; text-align:center; margin-top:1%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>
       </div>
     </nav>

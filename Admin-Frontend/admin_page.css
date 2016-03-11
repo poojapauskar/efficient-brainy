@@ -68,6 +68,9 @@ img{
     color: white;
     font-family: Lato Bold;
 }
+.btn-md.round:focus{
+    outline:none;
+}
 
 hr{
   width:60%;
@@ -97,3 +100,4 @@ h4{
    opacity:0.7;
     margin-top:5%;
 }
+
