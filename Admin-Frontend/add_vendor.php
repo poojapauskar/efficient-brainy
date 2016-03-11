@@ -1,4 +1,11 @@
+<html>
+<body>
+<head>
+<link rel="stylesheet" type="text/css" href="add_vendor.css">
+<style>
 
+</style>
+</head>
 
 <?php
 $url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
@@ -78,36 +85,13 @@ if($_POST['username'] != '' && $name['status']==200){
 }*/
 </script>
 
+<h4>New Vendor Form</h4>
 
 <form action="" method="post" id="myform">
-      		  <label>
-              Username
-            </label>
-            <input type="text" name="username" value="<?php echo $_POST['username'] ?>" required>
-            <br>
-            <label>
-              Password
-            </label>
-            <input type="password" name="password" pattern="[A-Za-z0-9]{8,16}" title="Password must contain 8-16 digits" value="<?php echo $_POST['password'] ?>" required>
-            <br>
-            <label>
-              Name
-            </label>
-            <input type="text" name="name" value="<?php echo $_POST['name'] ?>">
-            <br>
-            <label>
-              Email
-            </label>
-            <input type="email" name="email" value="<?php echo $_POST['email'] ?>">
-            <br>
-            <label>
-              Phone
-            </label>
-            <input type="text" pattern="[0-9]{12}" value="<?php echo $_POST['phone'] ?>" title="Phone number starting with country code and 12 digits" name="phone" required>
-            <br>
-            <label>
-              City
-            </label>
+            
+          
+            <input type="text" name="name" placeholder="Name" value="<?php echo $_POST['name'] ?>">
+            <br><br>
             <select required="True" class="custom" name="city" style="">
                   <option value="">Select City</option>
                     <?php 
@@ -116,19 +100,32 @@ if($_POST['username'] != '' && $name['status']==200){
                     <?php  } 
                     ?>
             </select>
-            <br>
-            <label>
-              Address
-            </label>
-            <input type="text" name="address" value="<?php echo $_POST['address'] ?>">
-            <br>
-
-            <input type="submit" value="Register">
+            <br><br>
+            <input type="email" name="email" placeholder="Email" value="<?php echo $_POST['email'] ?>">
+            <br><br>
+            <input type="text" placeholder="Mobile" pattern="[0-9]{12}" value="<?php echo $_POST['phone'] ?>" title="Phone number starting with country code and 12 digits" name="phone" required>
+            <br><br>
+            <input type="text" name="address" placeholder="Address" value="<?php echo $_POST['address'] ?>">
+            <!-- <textarea rows="4" placeholder="Address" name="address" form="myform"></textarea> -->
+            <br><br>
             
-	  </form>
+            <!-- <input type="text" placeholder="Address" name="address">
+            <br><br> -->
+            <input type="text" name="username" placeholder="Username" value="<?php echo $_POST['username'] ?>" required>
+            <br><br>
+            <input type="password" name="password" placeholder="Password" pattern="[A-Za-z0-9]{8,16}" title="Password must contain 8-16 digits" value="<?php echo $_POST['password'] ?>" required>
+            <br><br>
+            <!-- <input type="submit" value="Register"> -->
 
-
-<form action="manage_vendor.php" method="post">
-             <input type="submit" value="Cancel">
+            <button id="btn1" type="submit">Generate</button>
+            
             
     </form>
+
+<form action="manage_vendor.php" method="post">
+             <button id="btn2" type="submit">Cancel</button>
+            
+    </form>
+
+</body>
+</html>

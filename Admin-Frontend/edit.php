@@ -1,3 +1,9 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="edit.css">
+</head>
+<body>
+
 <?php
 $url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
@@ -66,40 +72,16 @@ $profile = json_decode($output_profile,true);
   $option1=$_POST['city'];
 }?>
 
-<form action="" method="post">
-            <!-- <label>
-              User_id
-            </label> -->
+
+<h4>Edit Vendor Details</h4>
+
+<form action="" method="post" id="myform">
             <input type="hidden" readonly="true" name="user_id" value="<?php echo $_POST['user_id'] ?>">
             <br>
-      		  <label>
-              Username
-            </label>
-            <input type="text" readonly="true" name="username" value="<?php echo $_POST['username']?>" required>
-            <br>
-            <label>
-              Password
-            </label>
-            <input type="text" readonly="true" name="password" value="<?php echo $_POST['password']?>" required>
-            <br>
-            <label>
-              Name
-            </label>
+            <label>Name:</label>
             <input type="text" name="name" value="<?php echo $_POST['name']?>">
-            <br>
-            <label>
-              Email
-            </label>
-            <input type="email" name="email" value="<?php echo $_POST['email']?>">
-            <br>
-            <label>
-              Phone
-            </label>
-            <input type="text" pattern="[0-9]{12}" title="Phone number starting with country code and 12 digits" name="phone" value="<?php echo $_POST['phone']?>" required>
-            <br>
-            <label>
-              City
-            </label>
+            <br><br>
+            <label>City:</label>
             <select required="True" class="custom" name="city1" style="">
 
                 <option value=<?php echo $value1; ?> ><?php echo $option1; ?></option>
@@ -109,26 +91,46 @@ $profile = json_decode($output_profile,true);
                     <?php  } 
                     ?>
             </select>
-            <br>
-            <label>
-              Address
-            </label>
-            <input type="text" name="address" value="<?php echo $_POST['address']?>">
-            <br>
-            <br>
-            <input type="submit" value="Save Changes">
+            <br><br>
+            <label>Email:</label>
+            <input type="email" name="email" value="<?php echo $_POST['email']?>">
+            <br><br>
+            <label>Mobile:</label>
+            <input type="text" pattern="[0-9]{12}" title="Phone number starting with country code and 12 digits" name="phone" value="<?php echo $_POST['phone']?>" required>
+            <br><br>
+            <label>Address:</label>
+            <!-- <textarea rows="4"  name="address" form="myform" value="<?php echo $_POST['address']?>"></textarea>
+            <br><br>  -->
             
-	  </form>
+            <input type="text" name="address" value="<?php echo $_POST['address']?>">
+            <br><br>
+            <label>Username:</label>
+            <input type="text" readonly="true" name="username" value="<?php echo $_POST['username']?>" required>
+            <br><br>
+            <label>Password:</label>
+            <input type="text" readonly="true" name="password" value="<?php echo $_POST['password']?>" required>
+            <br><br>
+            <!-- <input type="submit" value="Register"> -->
 
+            <button id="btn1" type="submit">Save Changes</button>
+           
+            
+
+            
+            
+    </form>
+
+
+<form action="manage_vendor.php" method="post">
+     <button id="btn2" type="submit">Cancel</button>
+</form>
 
 
 <form action="manage_vendor.php" method="post">
             <input type="hidden" readonly="true" name="delete_user" value="<?php echo $_POST['user_id'] ?>">
-            <input type="submit" value="Delete Vendor">
-            
-    </form>
+            <button id="btn3" >Delete</button>
+</form>
 
-<form action="manage_vendor.php" method="post">
-             <input type="submit" value="Cancel">
-            
-    </form>
+
+</body>
+</html>
