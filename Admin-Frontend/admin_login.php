@@ -59,7 +59,7 @@ if($arr2['status']==200){
       </div>
     </nav>
 
-<?php if($arr2['status']!=200){
+<?php if($arr2['status']==400 || $arr['status'] == 401){
           $error="Invalid Admin Credentials";
 }?>
 
