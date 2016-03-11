@@ -9,7 +9,7 @@
 
 
 <?php if($_POST['delete_city'] != ''){
-  $url_delete = 'http://0.0.0.0:8000/delete_city/id='.$_POST['delete_city'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+  $url_delete = 'https://efficient-brainy.herokuapp.com/delete_city/id='.$_POST['delete_city'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
   $options_delete = array(
     'http' => array(
       /*'header'  => array(
@@ -27,7 +27,7 @@
 }?>
 
 <?php
-$url3 = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url3 = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options3 = array(
   'http' => array(
     /*'header'  => array(
@@ -101,7 +101,7 @@ for ($x = 0; $x < count($arr3); $x++) { ?>
 
         <div class="row" style="padding:1%;">
           <hr>
-          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+          <p style="font-size:8px; text-align:center; margin-top:1%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>
       </div>
     </nav>

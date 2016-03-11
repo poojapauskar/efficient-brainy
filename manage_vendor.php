@@ -10,7 +10,7 @@
 
 
 <?php if($_POST['delete_user'] != ''){
-	$url_delete = 'http://0.0.0.0:8000/delete_user/id='.$_POST['delete_user'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+	$url_delete = 'https://efficient-brainy.herokuapp.com/delete_user/id='.$_POST['delete_user'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 	$options_delete = array(
 	  'http' => array(
 	    /*'header'  => array(
@@ -28,7 +28,7 @@
 }?>
 
 <?php
-$url3 = 'http://0.0.0.0:8000/get_edit_profile/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url3 = 'https://efficient-brainy.herokuapp.com/get_edit_profile/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options3 = array(
   'http' => array(
     /*'header'  => array(
@@ -78,7 +78,7 @@ $arr3 = json_decode($output3,true);
 <?php 
 for ($x = 0; $x < count($arr3); $x++) { ?>
 <?php
-$url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$arr3[$x]['city_id'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_city_name = 'https://efficient-brainy.herokuapp.com/get_city_from_id/id='.$arr3[$x]['city_id'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city_name = array(
   'http' => array(
     'method'  => 'GET',
@@ -129,7 +129,7 @@ $arr_city_name = json_decode($output_city_name,true);
 
         <div class="row" style="padding:1%;">
           <hr>
-          <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
+          <p style="font-size:8px; text-align:center; margin-top:1%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>
       </div>
     </nav>

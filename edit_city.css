@@ -122,3 +122,13 @@ h4{
   font-family: Lato Bold;
   box-shadow: 2px 4px 5px #B9B9B9;
 }
+
+#btn1:focus{
+  outline: none;
+}
+#btn2:focus{
+  outline: none;
+}
+#btn3:focus{
+  outline: none;
+}

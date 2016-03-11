@@ -19,7 +19,7 @@
     </nav>
 
 <?php
-$url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_city = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
   'http' => array(
     /*'header'  => array(
@@ -39,7 +39,7 @@ $city = json_decode($output_city,true);
 
 
 <?php
-$url_name = 'http://0.0.0.0:8000/check_username/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_name = 'https://efficient-brainy.herokuapp.com/check_username/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_name = array(
   'http' => array(
     'header'  => array(
@@ -69,7 +69,7 @@ if($_POST['username'] != '' && $name['status']==200){
 
        /* echo "hi";*/
 
-        $url8 = 'http://0.0.0.0:8000/register/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+        $url8 = 'https://efficient-brainy.herokuapp.com/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
         $data8 = array('token_generated' => '','is_admin' => '','username' => $_POST['username'],'password' => $_POST['password'],'city_id' => $_POST['city'],'phone' => $_POST['phone'], 'name' => $_POST['name'],'email' => $_POST['email'], 'address' =>$_POST['address']);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
@@ -119,7 +119,7 @@ if($arr9 != ''){
 
 <?php if($_POST['city'] != ''){
 
-$url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$_POST['city'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_city_name = 'https://efficient-brainy.herokuapp.com/get_city_from_id/id='.$_POST['city'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city_name = array(
 'http' => array(
 /*'header'  => array(
@@ -186,7 +186,7 @@ $option3="Select City";
           
         </div>
 
-        <div class="row" style="padding:1%;">
+        <div class="row" style="padding:9%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>

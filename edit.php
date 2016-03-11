@@ -16,7 +16,7 @@
     </nav>
 
 <?php
-$url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_city = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
   'http' => array(
     /*'header'  => array(
@@ -35,7 +35,7 @@ $city = json_decode($output_city,true);
 ?>
 
 <?php
-$url_profile = 'http://0.0.0.0:8000/get_edit_profile/update/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_profile = 'https://efficient-brainy.herokuapp.com/get_edit_profile/update/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_profile = array(
   'http' => array(
     'header'  => array(
@@ -60,7 +60,7 @@ $profile = json_decode($output_profile,true);
 <?php if($_POST['city1'] != ''){
   /*echo $_POST['city1'];*/
 
-  $url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$_POST['city1'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+  $url_city_name = 'https://efficient-brainy.herokuapp.com/get_city_from_id/id='.$_POST['city1'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
   $options_city_name = array(
     'http' => array(
       /*'header'  => array(
@@ -155,7 +155,7 @@ if($profile['status']==200){
           
         </div>
 
-        <div class="row" style="padding:1%;">
+        <div class="row" style="padding:7%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>

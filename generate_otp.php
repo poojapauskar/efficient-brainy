@@ -13,7 +13,7 @@ function change(){
 </script>
 
 <?php
-$url3 = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url3 = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options3 = array(
   'http' => array(
     /*'header'  => array(
@@ -32,7 +32,7 @@ $arr3 = json_decode($output3,true);
 ?>
 
 <?php
-$url4 = 'http://0.0.0.0:8000/get_vendor_from_city_id/id='.$_POST['city_selected'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url4 = 'https://efficient-brainy.herokuapp.com/get_vendor_from_city_id/id='.$_POST['city_selected'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options4 = array(
   'http' => array(
     /*'header'  => array(
@@ -53,7 +53,7 @@ echo $arr4['city_details'][0]['name'];*/
 ?>
 
 <?php
-$url_get_otp = 'http://0.0.0.0:8000/get_otp_from_user_id/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_get_otp = 'https://efficient-brainy.herokuapp.com/get_otp_from_user_id/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_get_otp = array(
   'http' => array(
     'header'  => array(
@@ -78,7 +78,7 @@ echo $_POST['generated_otp'];*/
 
 
 if($_POST['generated_otp'] != ''){
-$url_send_msg_mail = 'http://0.0.0.0:8000/send_otp_msg_mail/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$url_send_msg_mail = 'https://efficient-brainy.herokuapp.com/send_otp_msg_mail/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_send_msg_mail = array(
   'http' => array(
     'header'  => array(
@@ -176,7 +176,7 @@ if($arr_send_msg_mail[0]['status']==200){
           
         </div>
 
-        <div class="row" style="padding:1%;">
+        <div class="row" style="padding:23%;">
           <hr>
           <p style="font-size:8px; text-align:center; margin-top:0%;font-family:Lato-Light">2016 Efficient Brainy. All Rights Reserved.</p>
         </div>
