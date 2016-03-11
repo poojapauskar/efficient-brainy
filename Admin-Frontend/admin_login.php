@@ -68,7 +68,9 @@ if($arr2['status']==200){
       <div class="col-sm-6" id="image"></div>
       <div class="col-sm-5" style="background-color:; padding:12%;">
         <p id="form_title">Admin Console</p>
-<h6 style="color:red;margin-left:23%"><?php echo $error;?></h6> 
+
+<h6 style="color:#F03F32;margin-left:23%"><?php echo $error;?></h6>
+ 
         <form role="form" action="" method="post">
           <div class="form-group">
             <input type="text" name="username" placeholder="Username" class="form-control" id="name" required/><br>

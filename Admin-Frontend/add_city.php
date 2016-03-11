@@ -58,22 +58,28 @@ if($_POST['city'] != '' && $_POST['pin_code'] != ''){
         /*echo $result8;*/
         $arr9 = json_decode($result8,true);
         if($arr9 != ''){
-          echo "City added";
+          /*echo "City added";*/
         }
 
 
 }?>
 
-
+<?php 
+if($arr9 != ''){
+  $message2="City Added";       /*echo "City added";*/
+        }
+?>
 
 <h4>Add New City</h4>
 
+<h6 style="color:#49AC4D;margin-left:43%;font-size:14px;"><?php echo $message2;?></h6>  
+
 <form action="" method="post" id="myform">
             
-            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="city" placeholder="City" value="<?php echo $_POST['city'] ?>" required>
             <br><br>
             
-            <input type="text" name="pin_code" placeholder="Pin Code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." required>
+            <input type="text" name="pin_code" value="<?php echo $_POST['pin_code'] ?>" placeholder="Pin Code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." required>
             <br><br>
             
             <button id="btn1" type="submit">Generate</button>

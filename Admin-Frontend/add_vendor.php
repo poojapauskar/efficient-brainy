@@ -53,7 +53,7 @@ $output_name = file_get_contents($url_name, false,$context_name);
 
 $name = json_decode($output_name,true);
 if($name['status']==400){
- echo  "Username already exists";
+ /*echo  "Username already exists";*/
 }else{
   /*echo "Valid username";*/
 }
@@ -84,7 +84,7 @@ if($_POST['username'] != '' && $name['status']==200){
         /*echo $result8;*/
         $arr9 = json_decode($result8,true);
         if($arr9 != ''){
-          echo "Vendor registered";
+          /*echo "Vendor registered";*/
         }
 
 
@@ -98,13 +98,54 @@ if($_POST['username'] != '' && $name['status']==200){
 
 <h4>New Vendor Form</h4>
 
+<?php 
+if($name['status']==400){
+ $message1="Username already exists";
+}
+if($arr9 != ''){
+ $message2="Vendor registered";
+}
+?>
+<h6 style="color:#F03F32;margin-left:41.8%;font-size:14px;"><?php echo $message1;?></h6>
+<h6 style="color:#49AC4D;margin-left:43%;font-size:14px;"><?php echo $message2;?></h6>  
+
+
 <form action="" method="post" id="myform">
             
           
             <input type="text" name="name" placeholder="Name" value="<?php echo $_POST['name'] ?>">
             <br><br>
             <select required="True" class="custom" name="city" style="">
-                  <option value="">Select City</option>
+
+<?php if($_POST['city'] != ''){
+
+$url_city_name = 'http://0.0.0.0:8000/get_city_from_id/id='.$_POST['city'].'/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$options_city_name = array(
+'http' => array(
+/*'header'  => array(
+        'USERNAME: '.$_POST['username'],
+        'PASSWORD: '.$_POST['password'],
+      ),*/
+'method'  => 'GET',
+),
+);
+$context_city_name= stream_context_create($options_city_name);
+$output_city_name = file_get_contents($url_city_name, false,$context_city_name);
+/*echo $output_city_name;*/
+$arr_city_name = json_decode($output_city_name,true);
+/*echo $arr_city_name[0]['name'];*/
+/*$value1=$_POST['city1'];
+$option1=$arr_city_name[0]['name'];*/
+
+
+$value3=$_POST['city'];
+$option3=$arr_city_name[0]['name'];
+}else{
+$value3='';
+$option3="Select City";  
+}?>
+            <!-- <option value=<?php echo $city[$x]['id'] ?> ><?php echo $city[$x]['name'] ?></option> -->
+                  <option value="<?php echo $value3; ?>"><?php echo $option3; ?></option>
                     <?php 
                       for ($x = 0; $x <= count($city); $x++) { ?>
                           <option value=<?php echo $city[$x]['id'] ?> ><?php echo $city[$x]['name'] ?></option>
