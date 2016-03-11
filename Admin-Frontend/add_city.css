@@ -74,7 +74,7 @@ textarea{
   font-family: Lato Bold;
 }
 h4{
-  margin-top:10%;
+  margin-top:1%;
   margin-left: 42%;
   font-family: Lato Bold;
   font-size: 17px;
@@ -92,8 +92,8 @@ h4{
   box-shadow: 2px 4px 5px #B9B9B9;
 }
 #btn2{
-  /*margin-top:-55px;*/
-  margin-left:-41%;
+  margin-top:-55px;
+  margin-left:34%;
   border-radius: 25px;
   height:40px;
   width:150px;

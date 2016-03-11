@@ -1,10 +1,13 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="manage_vendor.css">
+<link rel="stylesheet" type="text/css" href="navigation_footer.css">
 <style>
 
 </style>
 <body>
+
+
 
 <?php if($_POST['delete_user'] != ''){
 	$url_delete = 'http://0.0.0.0:8000/delete_user/id='.$_POST['delete_user'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
@@ -43,7 +46,15 @@ $arr3 = json_decode($output3,true);
 
 ?>
 
-
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </nav>
 
 <h4>Manage Vendor</h4>
 
@@ -110,6 +121,10 @@ $arr_city_name = json_decode($output_city_name,true);
   
 </table>
 
+<div class="row">
+      <hr>
+      <p>2016 Efficient Brainy. All Rights Reserved.</p>
+    </div>
 
 </body>
 </html>

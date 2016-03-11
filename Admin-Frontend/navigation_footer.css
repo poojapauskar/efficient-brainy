@@ -1,0 +1,26 @@
+.navbar-default{
+  border: none;
+  padding: 2%;
+  background-color: white;
+
+}
+
+img{
+  margin-left: 5%;
+  /*margin-top: -10%;*/
+}
+
+
+hr{
+  width:60%;
+  margin-left: 19%;
+ /* border-color:black;*/
+ /* border-width:1px;*/
+}
+p{
+  font-size:8px; 
+  text-align:center; 
+  font-family:Lato Light;
+  margin-top:1%;
+  margin-bottom: 2%;
+}

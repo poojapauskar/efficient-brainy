@@ -1,8 +1,19 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="edit.css">
+<link rel="stylesheet" type="text/css" href="navigation_footer.css">
 </head>
 <body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </nav>
 
 <?php
 $url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
@@ -131,6 +142,10 @@ $profile = json_decode($output_profile,true);
             <button id="btn3" >Delete</button>
 </form>
 
+<div class="row">
+      <hr>
+      <p>2016 Efficient Brainy. All Rights Reserved.</p>
+    </div>
 
 </body>
 </html>

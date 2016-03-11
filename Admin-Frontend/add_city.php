@@ -1,11 +1,23 @@
 <html>
 <body>
 <head>
-<link rel="stylesheet" type="text/css" href="new_city_form.css">
+<link rel="stylesheet" type="text/css" href="add_city.css">
+<link rel="stylesheet" type="text/css" href="navigation_footer.css">
 <style>
 
 </style>
 </head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </nav>
+
 <?php
 $url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
@@ -58,15 +70,7 @@ if($_POST['city'] != '' && $_POST['pin_code'] != ''){
 
 <form action="" method="post" id="myform">
             
-            <select required="True" class="custom" name="city" style="">
-
-                <option value=<?php echo $value1; ?> ><?php echo $option1; ?></option>
-                    <?php 
-                      for ($x = 0; $x <= count($city); $x++) { ?>
-                          <option value=<?php echo $city[$x]['id'] ?> ><?php echo $city[$x]['name'] ?></option>
-                    <?php  } 
-                    ?>
-            </select>
+            <input type="text" name="city" placeholder="City" required>
             <br><br>
             
             <input type="text" name="pin_code" placeholder="Pin Code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." required>
@@ -83,5 +87,9 @@ if($_POST['city'] != '' && $_POST['pin_code'] != ''){
             
     </form>
 
+<div class="row">
+      <hr>
+      <p>2016 Efficient Brainy. All Rights Reserved.</p>
+    </div>
 </body>
 </html>

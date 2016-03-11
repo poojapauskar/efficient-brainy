@@ -1,8 +1,20 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="edit_city.css">
+<link rel="stylesheet" type="text/css" href="navigation_footer.css">
 </head>
 <body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
+        </div>
+      </div>
+    </nav>
+
 <?php
 $url_city = 'http://0.0.0.0:8000/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
@@ -47,16 +59,7 @@ $profile = json_decode($output_profile,true);
             <input type="hidden" readonly="true" name="city_id" value="<?php echo $_POST['city_id'] ?>">
             <br>
             <label>City:</label>
-            
-            <select required="True" class="custom" name="city" style="">
-            <option value="<?php echo $_POST['city_id']?>"><?php echo $_POST['city']?></option>
-                <option value=<?php echo $value1; ?> ><?php echo $option1; ?></option>
-                    <?php 
-                      for ($x = 0; $x <= count($city); $x++) { ?>
-                          <option value=<?php echo $city[$x]['id'] ?> ><?php echo $city[$x]['name'] ?></option>
-                    <?php  } 
-                    ?>
-            </select>
+            <input type="text" name="city" value="<?php echo $_POST['city']?>">
             <br><br>
             <label>Pincode:</label>
             <input type="text" name="pin_code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." value="<?php echo $_POST['pin_code']?>">
@@ -81,5 +84,10 @@ $profile = json_decode($output_profile,true);
             <button id="btn2" type="submit" >Cancel</button>
             
 </form>
+
+<div class="row">
+      <hr>
+      <p>2016 Efficient Brainy. All Rights Reserved.</p>
+    </div>
 </body>
 </html>

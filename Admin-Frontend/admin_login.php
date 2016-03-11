@@ -2,6 +2,15 @@
 
 <html>
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap1.css">
+  <script src="jquery1.js"></script>
+  <script src="jquery2.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="admin_login.css">
+ 
+
 <script type="text/javascript">
   
 /*document.getElementById("myNumber").defaultValue = "16";*/
@@ -27,45 +36,59 @@ $output2 = file_get_contents($url2, false,$context2);
 /*echo $output2;*/
 $arr2 = json_decode($output2,true);
 if($arr2['status']==200){
-  echo "Admin Logged In";
+  /*echo "Admin Logged In";*/
   header('Location: admin_page.php');
 }else{
-  echo "Invalid admin credentials";
+  /*echo "Invalid admin credentials";*/
 }
 
 }?>
 
-<div class="form">
-      
-        <div id="login">   
-          <h1>Admin login</h1>
-          
-          <form action="" method="post">
-          
-            <div class="field-wrap">
-            <label>
-              Username<span class="req">*</span>
-            </label>
-            <input type="text" name="username" required/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password" name="password" required/>
-          </div>
-          
-          <!-- <p class="forgot"><a href="http://localhost/foodromeo/forgot-password.php">Forgot Password?</a></p>
-           -->
-          <button class="" style="" type="submit" id="">Log In</button>
-          
-          </form>
 
+
+
+<div class="container-fluid"><!-- MAIN CONTAINER Begins -->
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="text-decoration:none;">
+            <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
+          </a>
         </div>
-        
       </div>
-      
+    </nav>
+
+<?php if($arr2['status']!=200){
+          $error="Invalid Admin Credentials";
+}?>
+
+
+    <div class="row">
+      <div class="col-sm-6" id="image"></div>
+      <div class="col-sm-5" style="background-color:; padding:12%;">
+        <p id="form_title">Admin Console</p>
+<h6 style="color:red;margin-left:23%"><?php echo $error;?></h6> 
+        <form role="form" action="" method="post">
+          <div class="form-group">
+            <input type="text" name="username" placeholder="Username" class="form-control" id="name" required/><br>
+            <input type="password" name="password" placeholder="Password" class="form-control" id="pwd" required>
+          </div>
+          
+          <button type="submit" class="btn btn-md round">LOG IN</button>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="row" style="padding:5%;"></div>
+
+    <div class="row">
+      <hr>
+      <p>2016 Efficient Brainy. All Rights Reserved.</p>
+    </div>
+
+  </div>      
 </div>
 </body>
 </html>
