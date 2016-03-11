@@ -46,7 +46,7 @@ body{
 #logo{
 
 }
-.navbar-default{
+#nav_top{
 	border: none;
 	padding: 2%;
 	background-color: white;
@@ -97,5 +97,11 @@ hr{
 	width:60%;
 	margin-left: 19%;
 	border-color:black;
-	border-width:2px;
+	border-width:1px;
+}
+
+#nav_bottom{
+  border: none;
+  padding: 0.5%;
+  background-color: white;
 }
