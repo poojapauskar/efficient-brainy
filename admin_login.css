@@ -41,6 +41,19 @@ body{
   font-family: Lato Regular;
   src: url(Fonts/Lato-Regular.ttf);
 }
+#loadingPleaseWait {
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 10%;
+    /*background-color: white;*/
+    display: none;
+    vertical-align: center;
+    }
+#loadingPleaseWait div {
+    margin-top: 25%;
+    margin-left: 55%;
+    text-align: center;
+    }
+
 #logo{
 
 }
@@ -98,6 +111,8 @@ img{
 .btn-md.round:focus{
     outline:none;
 }
+
+
 
 
 hr{

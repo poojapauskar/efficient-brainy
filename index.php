@@ -5,6 +5,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bootstrap1.css">
+
+<script type="text/javascript">
+
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
   <script src="jquery1.js"></script>
   <script src="jquery2.js"></script>
 
@@ -16,7 +30,7 @@
 /*document.getElementById("myNumber").defaultValue = "16";*/
 </script>
 </head>
-<body>
+<body onload="hide_wait_msg()">
 
 
 <?php
@@ -60,6 +74,8 @@ if($arr2['status']==200){
       </div>
     </nav>
 
+<div id="loadingPleaseWait"><div><h6>Loading, please wait...</h6></div></div>
+
 <?php if($arr2['status']==400 || $arr['status'] == 401){
           $error="Invalid Admin Credentials";
 }?>
@@ -78,7 +94,7 @@ if($arr2['status']==200){
             <input type="password" name="password" placeholder="Password" class="form-control" id="pwd" required>
           </div>
           
-          <button type="submit" class="btn btn-md round">LOG IN</button>
+          <button onclick="show_wait_msg()" type="submit" class="btn btn-md round">LOG IN</button>
         </form>
 
       </div>
