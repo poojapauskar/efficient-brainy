@@ -11,7 +11,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="text-decoration:none;">
+          <a class="navbar-brand" href="admin_page.php" style="text-decoration:none;">
             <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
           </a>
         </div>

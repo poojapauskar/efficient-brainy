@@ -2,13 +2,30 @@
 <head>
 <link rel="stylesheet" type="text/css" href="edit.css">
 <link rel="stylesheet" type="text/css" href="navigation_footer.css">
+<script type="text/javascript">
+
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
+<style>
+
+</style>
+
 </head>
-<body>
+<body onload="hide_wait_msg()">
 
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="text-decoration:none;">
+          <a class="navbar-brand" href="admin_page.php" style="text-decoration:none;">
             <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
           </a>
         </div>
@@ -84,6 +101,8 @@ $profile = json_decode($output_profile,true);
 }?>
 
 
+<div id="loadingPleaseWait"><div>Loading, please wait...</div></div>
+
 <h4>Edit Vendor Details</h4>
 
 <?php 
@@ -140,13 +159,13 @@ if($profile['status']==200){
 
 
 <form action="manage_vendor.php" method="post">
-     <button id="btn2" type="submit">Cancel</button>
+     <button onclick="show_wait_msg()" id="btn2" type="submit">Cancel</button>
 </form>
 
 
 <form action="manage_vendor.php" method="post">
             <input type="hidden" readonly="true" name="delete_user" value="<?php echo $_POST['user_id'] ?>">
-            <button id="btn3" >Delete</button>
+            <button onclick="show_wait_msg()" id="btn3" >Delete</button>
 </form>
 
 <nav class="navbar navbar-default navbar-fixed-bottom" id="nav_bottom">

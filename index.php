@@ -37,7 +37,8 @@ $output2 = file_get_contents($url2, false,$context2);
 $arr2 = json_decode($output2,true);
 if($arr2['status']==200){
   /*echo "Admin Logged In";*/
-  header('Location: admin_page.php');
+  /*header('Location: admin_page.php');*/
+  echo "<script>location='admin_page.php'</script>";
 }else{
   /*echo "Invalid admin credentials";*/
 }

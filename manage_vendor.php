@@ -2,10 +2,23 @@
 <head>
 <link rel="stylesheet" type="text/css" href="manage_vendor.css">
 <link rel="stylesheet" type="text/css" href="navigation_footer.css">
+<script type="text/javascript">
+
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
 <style>
 
 </style>
-<body>
+<body onload="hide_wait_msg()">
 
 
 
@@ -49,18 +62,22 @@ $arr3 = json_decode($output3,true);
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="text-decoration:none;">
+          <a class="navbar-brand" href="admin_page.php" style="text-decoration:none;">
             <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
           </a>
         </div>
       </div>
     </nav>
 
+
+<div id="loadingPleaseWait"><div>Loading, please wait...</div></div>
+
+
 <h4>Manage Vendor</h4>
 
 <form action="add_vendor.php">
    <!--  <input type="submit" value="Add vendor"> -->
-    <button type="submit">Add New Vendor</button>
+    <button onclick="show_wait_msg()" type="submit">Add New Vendor</button>
 </form>
 
 
@@ -99,7 +116,7 @@ $arr_city_name = json_decode($output_city_name,true);
   
     
     <!-- <td><input type="submit" value="edit"></td> -->
-    <td><button id="edit" type="submit">edit</button></td>
+    <td><button onclick="show_wait_msg()" id="edit" type="submit">edit</button></td>
   </tr>
 
 

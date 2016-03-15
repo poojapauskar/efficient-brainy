@@ -3,12 +3,25 @@
 <head>
 <link rel="stylesheet" type="text/css" href="generate_otp.css">
 <link rel="stylesheet" type="text/css" href="navigation_footer.css">
+<script type="text/javascript">
 
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
 </head>
-<body>
+<body onload="hide_wait_msg()">
 <script>
 function change(){
     document.getElementById("myform").submit();
+    document.getElementById('loadingPleaseWait').style.display = 'block';
 }
 </script>
 
@@ -122,12 +135,14 @@ if($arr_send_msg_mail[0]['status']==200){
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#" style="text-decoration:none;">
+          <a class="navbar-brand" href="admin_page.php" style="text-decoration:none;">
             <img src="images/Brainy_Logo.jpg" id="logo" class="img-responsive">
           </a>
         </div>
       </div>
     </nav>
+
+<div id="loadingPleaseWait"><div>Loading, please wait...</div></div>
 
 <h4>Generate  OTP</h4>
 
@@ -152,7 +167,7 @@ if($arr_send_msg_mail[0]['status']==200){
             <br>
             <br>
 
-            <button id="btn1" type="submit">Generate OTP</button>
+            <button id="btn1" onclick="show_wait_msg()" type="submit">Generate OTP</button>
            
             
     </form>
@@ -162,7 +177,7 @@ if($arr_send_msg_mail[0]['status']==200){
              <input type="hidden" name="vendor_id" value=<?php echo $arr_get_otp['vendor_id']; ?>>
             <!-- <input type="text" name="generated_otp" value=<?php echo $arr_get_otp['otp'][0]['otp']; ?>> -->
 
-            <button id="btn2" type="submit">Send OTP</button>
+            <button id="btn2" onclick="show_wait_msg()"  disabled= "disabled" type="submit">Send OTP</button>
             
     </form>
 
