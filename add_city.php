@@ -1,13 +1,26 @@
 <html>
-<body>
+
 <head>
 <link rel="stylesheet" type="text/css" href="add_city.css">
 <link rel="stylesheet" type="text/css" href="navigation_footer.css">
+<script type="text/javascript">
+
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
 <style>
 
 </style>
 </head>
-
+<body onload="hide_wait_msg()">
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -70,6 +83,8 @@ if($arr9 != ''){
         }
 ?>
 
+<div id="loadingPleaseWait"><div>Loading, please wait...</div></div>
+
 <h4>Add New City</h4>
 
 <h6 style="color:#49AC4D;margin-left:43%;font-size:14px;"><?php echo $message2;?></h6>  
@@ -82,14 +97,14 @@ if($arr9 != ''){
             <input type="text" name="pin_code" value="<?php echo $_POST['pin_code'] ?>" placeholder="Pin Code" pattern="[0-9]{6}" title="Pincode should contain 6 digits. Only numbers allowed." required>
             <br><br>
             
-            <button id="btn1" type="submit">Generate</button>
+            <button onclick="show_wait_msg()" id="btn1" type="submit">Generate</button>
            
             
     </form>
 
 
 <form action="manage_city.php" method="post">
-              <button id="btn2" type="submit">Cancel</button>
+              <button onclick="show_wait_msg()" id="btn2" type="submit">Cancel</button>
             
     </form>
 

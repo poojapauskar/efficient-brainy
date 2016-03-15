@@ -102,10 +102,10 @@ h4{
 }
 #btn1{
   margin-top:20px;
-  margin-left:38%;
+  margin-left:39%;
   border-radius: 25px;
   height:40px;
-  width:150px;
+  width:110px;
   background-color:#49AC4D;
   color:white;
   border:none;
@@ -114,10 +114,10 @@ h4{
 }
 #btn2{
   margin-top:-72px !important;
-  margin-left:65%;
+  margin-left:68%;
   border-radius: 25px;
   height:40px;
-  width:150px;
+  width:110px;
   background-color:#1E93F0;
   color:white;
   border:none;
@@ -129,7 +129,7 @@ h4{
   margin-left:25%;
   border-radius: 25px;
   height:40px;
-  width:150px;
+  width:110px;
   background-color:#F03F32;
   color:white;
   border:none;

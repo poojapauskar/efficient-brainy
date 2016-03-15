@@ -1,13 +1,26 @@
 <html>
-<body>
+
 <head>
 <link rel="stylesheet" type="text/css" href="add_vendor.css">
 <link rel="stylesheet" type="text/css" href="navigation_footer.css">
+<script type="text/javascript">
+
+function hide_wait_msg ()
+{
+    document.getElementById('loadingPleaseWait').style.display = 'none';
+}
+
+function show_wait_msg ()
+{
+     document.getElementById('loadingPleaseWait').style.display = 'block';
+}
+
+</script>
 <style>
 
 </style>
 </head>
-
+<body onload="hide_wait_msg()">
 <nav class="navbar navbar-default navbar-fixed-top" id="nav_top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -69,7 +82,7 @@ if($_POST['username'] != '' && $name['status']==200){
 
        /* echo "hi";*/
 
-        $url8 = 'https://efficient-brainy.herokuapp.com/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+        $url8 = 'https://efficient-brainy.herokuapp.com/register/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
         $data8 = array('token_generated' => '','is_admin' => '','username' => $_POST['username'],'password' => $_POST['password'],'city_id' => $_POST['city'],'phone' => $_POST['phone'], 'name' => $_POST['name'],'email' => $_POST['email'], 'address' =>$_POST['address']);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
@@ -95,6 +108,8 @@ if($_POST['username'] != '' && $name['status']==200){
     document.getElementById("myform").submit();
 }*/
 </script>
+
+<div id="loadingPleaseWait"><div>Loading, please wait...</div></div>
 
 <h4>New Vendor Form</h4>
 
@@ -169,13 +184,13 @@ $option3="Select City";
             <br><br>
             <!-- <input type="submit" value="Register"> -->
 
-            <button id="btn1" type="submit">Generate</button>
+            <button onclick="show_wait_msg()" id="btn1" type="submit">Generate</button>
             
             
     </form>
 
 <form action="manage_vendor.php" method="post">
-             <button id="btn2" type="submit">Cancel</button>
+             <button onclick="show_wait_msg()" id="btn2" type="submit">Cancel</button>
             
     </form>
 
