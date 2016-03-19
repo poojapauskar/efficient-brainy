@@ -103,21 +103,31 @@ button:focus{
   outline: none;
 }
 
-table, th, td {
+ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -40%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
 
+/*@media (max-width:1900px) { 
+  table, th, td {
+      border: 1px solid #1976D2 ;
+      border-collapse: collapse;
+      font-size:12px;
+      margin-top: 0%;
+      margin-left: 23%;
+      
+  }
+}
 @media (max-width:1500px) { 
   table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -34%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
@@ -127,7 +137,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -48%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
@@ -138,7 +148,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -50%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
@@ -148,7 +158,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -55%;
+      margin-top:0%;
       margin-left: 23%;
       
   }
@@ -168,7 +178,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -65%;
+      margin-top: 40%;
       margin-left: 23%;
       
   }
@@ -178,7 +188,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -68%;
+      margin-top: -10%;
       margin-left: 23%;
       
   }
@@ -188,7 +198,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -78%;
+      margin-top: -5%;
       margin-left: 23%;
       
   }
@@ -198,7 +208,7 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -84%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
@@ -208,8 +218,8 @@ table, th, td {
       border: 1px solid #1976D2 ;
       border-collapse: collapse;
       font-size:12px;
-      margin-top: -74%;
+      margin-top: 0%;
       margin-left: 23%;
       
   }
-}
+}*/
