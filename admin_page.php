@@ -37,7 +37,7 @@ function show_wait_msg ()
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#" id="hello_user">Hello User,</a></li>
-					<li><a href="#" id="log_out">Log Out</a></li>
+					<li><a href="index.php" id="log_out">Log Out</a></li>
 				</ul>
 			</div>
 		</nav>
