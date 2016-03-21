@@ -182,6 +182,7 @@ if($arr_send_msg_mail[0]['status']==200){
     </form>
 
 <h4 form="send_form" style="color:#49AC4D;margin-left:44%"><?php echo $arr_get_otp['otp'][0]['otp']; ?></h4>
+<h4 form="send_form" style="color:#49AC4D;margin-left:44%"><?php echo "File No. "; echo $arr_get_otp['file_no'][0]['file_no']; ?></h4>
 <!-- 
 <input type="text" form="send_form" name="generated_otp" value=<?php echo $arr_get_otp['otp'][0]['otp']; ?>> -->
 
