@@ -132,7 +132,7 @@ $arr_city_name = json_decode($output_city_name,true);
 
 
 </form>
-<br><br><br>
+
 <?php  } 
 ?>
   

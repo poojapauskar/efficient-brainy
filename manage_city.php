@@ -101,7 +101,7 @@ for ($x = 0; $x < count($arr3); $x++) { ?>
 
 
 </form>
-<br><br><br>
+
 <?php  } 
 ?>
 </table>
