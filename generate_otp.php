@@ -127,7 +127,7 @@ if($arr_send_msg_mail[0]['status']==200){
   $option1="Select Vendor";
   $value1="";
 }else{
-  $option1=$arr_get_otp['vendor_name'];
+  $option1=$arr_get_otp['vendor_username'];
   $value1=$arr_get_otp['vendor_id'];
 }?>
 

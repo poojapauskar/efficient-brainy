@@ -53,6 +53,12 @@ $city = json_decode($output_city,true);
 
 <?php
 $url_profile = 'https://efficient-brainy.herokuapp.com/get_edit_profile/update/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+if($_POST['city'] != ''){
+  $city2= $_POST['city_id'];
+}
+else{
+  $city2= $_POST['city1'];
+}
 $options_profile = array(
   'http' => array(
     'header'  => array(
@@ -60,7 +66,7 @@ $options_profile = array(
                   'NAME: '.$_POST['name'],
                   'EMAIL: '.$_POST['email'],
                   'PHONE: '.$_POST['phone'],
-                  'CITY: '.$_POST['city1'],
+                  'CITY: '.$city2,
                   'ADDRESS: '.$_POST['address'],
                 ),
     'method'  => 'GET',
