@@ -20,7 +20,31 @@ function show_wait_msg ()
 </style>
 <body onload="hide_wait_msg()">
 
+<?php
 
+$url_check = 'https://efficient-brainy.herokuapp.com/update_logged_in/check/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$options_check = array(
+  'http' => array(
+    /*'header'  => array(
+                  'LOGGED-IN: 1',
+                ),*/
+    'method'  => 'GET',
+  ),
+);
+$context_check = stream_context_create($options_check);
+$output_check = file_get_contents($url_check, false,$context_check);
+/*echo $output_check;*/
+$arr_check = json_decode($output_check,true);
+/*echo $arr_check;*/
+
+if($arr_check['status'] == 400){
+      echo "<script>location='index.php'</script>";
+}else{
+    /*echo "<script>location='index.php'</script>";*/  
+}
+
+
+?>
 
 <?php if($_POST['delete_user'] != ''){
 	$url_delete = 'https://efficient-brainy.herokuapp.com/delete_user/id='.$_POST['delete_user'].'?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';

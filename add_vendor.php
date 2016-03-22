@@ -32,6 +32,32 @@ function show_wait_msg ()
     </nav>
 
 <?php
+
+$url_check = 'https://efficient-brainy.herokuapp.com/update_logged_in/check/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+$options_check = array(
+  'http' => array(
+    /*'header'  => array(
+                  'LOGGED-IN: 1',
+                ),*/
+    'method'  => 'GET',
+  ),
+);
+$context_check = stream_context_create($options_check);
+$output_check = file_get_contents($url_check, false,$context_check);
+/*echo $output_check;*/
+$arr_check = json_decode($output_check,true);
+/*echo $arr_check;*/
+
+if($arr_check['status'] == 400){
+      echo "<script>location='index.php'</script>";
+}else{
+    /*echo "<script>location='index.php'</script>";*/  
+}
+
+
+?>
+
+<?php
 $url_city = 'https://efficient-brainy.herokuapp.com/get_edit_city/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
 $options_city = array(
   'http' => array(
@@ -83,7 +109,7 @@ if($_POST['username'] != '' && $name['status']==200){
        /* echo "hi";*/
 
         $url8 = 'https://efficient-brainy.herokuapp.com/register/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
-        $data8 = array('token_generated' => '','is_admin' => '','username' => $_POST['username'],'password' => $_POST['password'],'city_id' => $_POST['city'],'phone' => $_POST['phone'], 'name' => $_POST['name'],'email' => $_POST['email'], 'address' =>$_POST['address']);
+        $data8 = array('token_generated' => '','is_admin' => '','logged_in' => '','username' => $_POST['username'],'password' => $_POST['password'],'city_id' => $_POST['city'],'phone' => $_POST['phone'], 'name' => $_POST['name'],'email' => $_POST['email'], 'address' =>$_POST['address']);
         // use key 'http' even if you send the request to https://...
         $options8 = array(
           'http' => array(

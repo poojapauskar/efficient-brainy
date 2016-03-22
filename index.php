@@ -50,6 +50,24 @@ $output2 = file_get_contents($url2, false,$context2);
 /*echo $output2;*/
 $arr2 = json_decode($output2,true);
 if($arr2['status']==200){
+
+
+                   
+                      $url_logged = 'https://efficient-brainy.herokuapp.com/update_logged_in/?access_token=QIw10aWGHb2kchy1huq5o3CyJ88kR9';
+                      $options_logged = array(
+                        'http' => array(
+                          'header'  => array(
+                                        'LOGGED-IN: 1',
+                                      ),
+                          'method'  => 'GET',
+                        ),
+                      );
+                      $context_logged = stream_context_create($options_logged);
+                      $output_logged = file_get_contents($url_logged, false,$context_logged);
+                      /*echo $output2;*/
+                      $arr_logged = json_decode($output_logged,true);
+                     
+
   /*echo "Admin Logged In";*/
   /*header('Location: admin_page.php');*/
   echo "<script>location='admin_page.php'</script>";
